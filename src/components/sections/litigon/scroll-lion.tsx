@@ -18,7 +18,7 @@ const BASE = 96;
 const MID_PROGRESS = 0.45;
 
 // Viewport height fraction where the ecosystem heading rests when docked.
-const DOCK_VIEWPORT_Y = 0.5;
+const DOCK_VIEWPORT_Y = 0.4;
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -77,9 +77,9 @@ const ScrollLion = () => {
       };
 
       // Stop 2 — just left of the "An integrated ecosystem" heading.
-      const ecoSize = ecoRect.height * 1.25;
+      const ecoSize = ecoRect.height * 1.1;
       const p2: Point = {
-        x: ecoRect.left - 24 - ecoSize + scrollY,
+        x: ecoRect.left - 20 - ecoSize + scrollY,
         y: ecoRect.top + ecoRect.height / 2 + scrollY,
         size: ecoSize,
       };

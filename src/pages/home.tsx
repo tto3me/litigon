@@ -35,7 +35,7 @@ const Home = () => {
       <Layout>
         <Hero />
         <ScrollLion />
-        <Services />
+        <Services dockedLion />
         <Suspense fallback={null}>
           <Showcase />
         </Suspense>
