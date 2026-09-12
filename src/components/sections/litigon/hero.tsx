@@ -35,13 +35,13 @@ const Hero = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null> }) =>
             src={slide.src}
             alt={slide.alt}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              i === active ? "opacity-40" : "opacity-0"
+              i === active ? "opacity-70" : "opacity-0"
             }`}
             fetchPriority={i === 0 ? "high" : undefined}
             aria-hidden={i !== active}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90" />
       </div>
 
       <Container className="relative z-10 pt-[150px] md:pt-[190px] pb-16 md:pb-24">
