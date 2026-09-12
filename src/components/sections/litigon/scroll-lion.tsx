@@ -84,10 +84,10 @@ const ScrollLion = () => {
         size: impactRect.height * 0.85,
       };
 
-      // Stop 2 — just left of the "An integrated ecosystem" heading.
-      const ecoSize = ecoRect.height * 1.1;
+      // Stop 2 — right before the "An integrated ecosystem" heading.
+      const ecoSize = ecoRect.height * 0.65;
       const p2: Point = {
-        x: ecoRect.left - GAP - ecoSize + scrollY,
+        x: ecoRect.left - ECO_GAP - ecoSize + scrollY,
         y: ecoRect.top + ecoRect.height / 2 + scrollY,
         size: ecoSize,
       };
