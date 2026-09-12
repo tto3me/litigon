@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import litigonLion from "@/assets/litigon/litigon-lion.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
