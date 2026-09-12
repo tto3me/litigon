@@ -141,6 +141,7 @@ const Showcase = () => {
                       {item.profileText}
                     </p>
                   </div>
+                  </div>
                 </div>
               </Button>
             </AnimateOnView>
