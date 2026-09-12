@@ -94,18 +94,19 @@ const Showcase = () => {
                   src={item.image}
                   alt={item.title}
                   loading="lazy"
-                  className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] ${
-                    expandedItem === item.title ? "md:w-[58%]" : ""
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div
+                  className={`absolute inset-0 transition-colors duration-500 ${
+                    expandedItem === item.title
+                      ? "bg-black/60"
+                      : "bg-gradient-to-t from-black/90 via-black/30 to-transparent"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                {expandedItem === item.title && (
-                  <div className="absolute inset-0 hidden bg-gradient-to-l from-black via-black/95 to-black/10 md:block" />
-                )}
                 <div
-                  className={`absolute inset-x-0 bottom-0 p-6 text-white transition-all duration-500 md:p-8 ${
+                  className={`absolute inset-x-0 bottom-0 p-6 text-white transition-all duration-500 md:p-10 ${
                     expandedItem === item.title
-                      ? "top-auto bg-gradient-to-t from-black via-black/90 to-transparent md:inset-y-0 md:left-[54%] md:right-0 md:flex md:flex-col md:justify-center md:bg-none md:px-12"
+                      ? "inset-y-0 flex flex-col justify-center"
                       : ""
                   }`}
                 >
