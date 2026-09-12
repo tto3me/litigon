@@ -18,10 +18,12 @@ const BASE = 96;
 const MID_PROGRESS = 0.45;
 
 // Viewport height fraction where the ecosystem heading rests when docked.
-const DOCK_VIEWPORT_Y = 0.4;
+// Lower = stop earlier, while the heading is just arriving.
+const DOCK_VIEWPORT_Y = 0.15;
 
 // Gap between the lion and the word "Impact" / the ecosystem heading.
 const GAP = 40;
+const ECO_GAP = 10;
 
 // How high the lion leaps above the straight path on each leg of the journey.
 const ARC_HEIGHT = 130;
@@ -82,10 +84,10 @@ const ScrollLion = () => {
         size: impactRect.height * 0.85,
       };
 
-      // Stop 2 — just left of the "An integrated ecosystem" heading.
-      const ecoSize = ecoRect.height * 1.1;
+      // Stop 2 — right before the "An integrated ecosystem" heading.
+      const ecoSize = ecoRect.height * 0.65;
       const p2: Point = {
-        x: ecoRect.left - GAP - ecoSize + scrollY,
+        x: ecoRect.left - ECO_GAP - ecoSize + scrollY,
         y: ecoRect.top + ecoRect.height / 2 + scrollY,
         size: ecoSize,
       };

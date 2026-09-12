@@ -84,7 +84,7 @@ const Services = ({
         <AnimateOnView
           once
           blur
-          className={`mb-12 max-w-[720px] ${dockedLion ? "lg:pl-[132px] lg:max-w-[852px]" : ""}`}
+          className={`mb-12 max-w-[720px] ${dockedLion ? "lg:pl-[72px] lg:max-w-[792px]" : ""}`}
         >
           <h2 id="litigon-ecosystem-heading" className="h2 mb-5">{heading}</h2>
           <p className="paragraph-large text-muted-foreground">
