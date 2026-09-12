@@ -3,14 +3,13 @@ import SEO from "@/components/seo";
 import Hero from "@/components/sections/litigon/hero";
 import Services from "@/components/sections/litigon/services";
 import ScrollLion from "@/components/sections/litigon/scroll-lion";
-import { lazy, Suspense, useRef } from "react";
+import { lazy, Suspense } from "react";
 
 const Projects = lazy(() => import("@/components/sections/litigon/projects"));
 const Showcase = lazy(() => import("@/components/sections/litigon/showcase"));
 const Approach = lazy(() => import("@/components/sections/litigon/approach"));
 
 const Home = () => {
-  const heroRef = useRef<HTMLElement>(null);
   const metaTitle = "Litigon | Events & Conferences Management in Saudi Arabia";
   const metaDescription =
     "Litigon plans, produces and manages conferences, exhibitions, cultural seasons and shows across Saudi Arabia — strategy, creative, production and logistics in one team.";
@@ -34,8 +33,8 @@ const Home = () => {
     <>
       <SEO title={metaTitle} description={metaDescription} canonicalUrl="/" jsonLd={jsonLd} />
       <Layout>
-        <Hero heroRef={heroRef} />
-        <ScrollLion heroRef={heroRef} />
+        <Hero />
+        <ScrollLion />
         <Services />
         <Suspense fallback={null}>
           <Showcase />
