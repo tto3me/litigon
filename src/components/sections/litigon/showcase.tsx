@@ -78,16 +78,15 @@ const Showcase = () => {
                 delay={index * 0.05}
                 className="h-full"
               >
-                <Button
+                <button
                   type="button"
-                  variant="outline"
                   aria-expanded={isExpanded}
                   onClick={() =>
                     setExpandedItem((current) =>
                       current === item.title ? null : item.title
                     )
                   }
-                  className={`group flex h-full w-full flex-col overflow-hidden whitespace-normal rounded-3xl border-0 bg-card p-0 text-left transition-all duration-500 hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`group flex h-full w-full flex-col overflow-hidden rounded-3xl border-0 bg-foreground p-0 text-left text-primary-foreground transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                     isExpanded ? "ring-1 ring-primary/30" : ""
                   }`}
                 >
@@ -98,21 +97,25 @@ const Showcase = () => {
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
                   </div>
 
-                  <div className="flex flex-1 flex-col p-5 text-white md:p-6">
+                  <div className="flex flex-1 flex-col p-5 md:p-6">
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="h6">{item.title}</h3>
+                      <h3 className="h6 text-primary-foreground">
+                        {item.title}
+                      </h3>
                       <span
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30 transition-colors group-hover:bg-white/10"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary-foreground/30 bg-primary-foreground/10 transition-colors group-hover:bg-primary-foreground/20"
                         aria-hidden="true"
                       >
                         {isExpanded ? <Minus size={18} /> : <Plus size={18} />}
                       </span>
                     </div>
 
-                    <p className="mt-2 text-sm text-white/80">{item.text}</p>
+                    <p className="mt-2 text-sm text-primary-foreground/80">
+                      {item.text}
+                    </p>
 
                     <div
                       className={`grid transition-[grid-template-rows,opacity] duration-500 ${
@@ -121,14 +124,14 @@ const Showcase = () => {
                           : "grid-rows-[0fr] opacity-0"
                       }`}
                     >
-                      <div className="overflow-hidden border-t border-white/10 pt-4">
-                        <p className="text-sm leading-7 text-white/85 md:text-base">
+                      <div className="overflow-hidden border-t border-primary-foreground/10 pt-4">
+                        <p className="text-sm leading-7 text-primary-foreground/85 md:text-base">
                           {item.profileText}
                         </p>
                       </div>
                     </div>
                   </div>
-                </Button>
+                </button>
               </AnimateOnView>
             );
           })}
