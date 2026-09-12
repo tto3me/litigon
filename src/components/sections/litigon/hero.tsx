@@ -1,20 +1,46 @@
+import { useEffect, useState } from "react";
 import Container from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/litigon/about-conference-crowd.jpg";
+import heroImage1 from "@/assets/litigon/about-conference-crowd.jpg";
+import heroImage2 from "@/assets/litigon/tech-drone-show.jpg";
+import heroImage3 from "@/assets/litigon/tech-fireworks.jpg";
+
+const slides = [
+  { src: heroImage1, alt: "Litigon conference stage with a full audience in Saudi Arabia" },
+  { src: heroImage2, alt: "Litigon drone light show over the night sky" },
+  { src: heroImage3, alt: "Litigon fireworks display at a national celebration" },
+];
+
+const SLIDE_INTERVAL = 3500;
 
 const Hero = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null> }) => {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % slides.length);
+    }, SLIDE_INTERVAL);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section ref={heroRef} className="relative bg-black text-white overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Litigon conference stage with a full audience in Saudi Arabia"
-          className="h-full w-full object-cover opacity-40"
-          fetchPriority="high"
-        />
+        {slides.map((slide, i) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+              i === active ? "opacity-40" : "opacity-0"
+            }`}
+            fetchPriority={i === 0 ? "high" : undefined}
+            aria-hidden={i !== active}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black" />
       </div>
 
