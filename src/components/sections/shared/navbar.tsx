@@ -257,7 +257,7 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <Button asChild variant="gray" size="default">
-              <Link to="/signup">Get Started</Link>
+              <Link to="/contact">Plan your event</Link>
             </Button>
           )}
         </div>
