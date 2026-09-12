@@ -109,8 +109,11 @@ const ScrollLion = () => {
       }
 
       // Work in document space, then bring back to viewport space.
+      // The lion leaps in an arc: it rises above the straight path
+      // mid-leg and lands exactly on each stop.
+      const arc = Math.sin(Math.PI * t) * ARC_HEIGHT;
       const docX = lerp(from.x, to.x, t);
-      const docY = lerp(from.y, to.y, t);
+      const docY = lerp(from.y, to.y, t) - arc;
       const size = lerp(from.size, to.size, t);
 
       x.set(docX - scrollY - BASE / 2);
