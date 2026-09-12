@@ -48,10 +48,16 @@ export default {
   				DEFAULT: 'rgb(var(--popover))',
   				foreground: 'rgb(var(--popover-foreground))'
   			},
-  			card: {
-  				DEFAULT: 'rgb(var(--card))',
-  				foreground: 'rgb(var(--card-foreground))'
-  			},
+    		card: {
+   				DEFAULT: 'rgb(var(--card))',
+   				foreground: 'rgb(var(--card-foreground))',
+   				dark: 'rgb(var(--card-dark))',
+   				'dark-foreground': 'rgb(var(--card-dark-foreground))'
+   			},
+   			border: {
+   				DEFAULT: 'rgb(var(--border))',
+   				dark: 'rgb(var(--border-dark))'
+   			},
   			revio: {
   				obsidian: 'rgb(var(--revio-obsidian))',
   				charcoal: 'rgb(var(--revio-charcoal))',
