@@ -20,6 +20,12 @@ const MID_PROGRESS = 0.45;
 // Viewport height fraction where the ecosystem heading rests when docked.
 const DOCK_VIEWPORT_Y = 0.4;
 
+// Gap between the lion and the word "Impact" / the ecosystem heading.
+const GAP = 40;
+
+// How high the lion leaps above the straight path on each leg of the journey.
+const ARC_HEIGHT = 130;
+
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const ease = (t: number) => t * t * (3 - 2 * t);
@@ -71,15 +77,15 @@ const ScrollLion = () => {
 
       // Stop 1 — just right of the word "Impact" in the hero headline.
       const p1: Point = {
-        x: impactRect.right + 16 + scrollY,
+        x: impactRect.right + GAP + scrollY,
         y: impactRect.top + impactRect.height / 2 + scrollY,
-        size: impactRect.height * 0.95,
+        size: impactRect.height * 0.85,
       };
 
       // Stop 2 — just left of the "An integrated ecosystem" heading.
       const ecoSize = ecoRect.height * 1.1;
       const p2: Point = {
-        x: ecoRect.left - 20 - ecoSize + scrollY,
+        x: ecoRect.left - GAP - ecoSize + scrollY,
         y: ecoRect.top + ecoRect.height / 2 + scrollY,
         size: ecoSize,
       };
