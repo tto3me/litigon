@@ -15,18 +15,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import Container from "../../container";
+import litigonLogo from "@/assets/litigon/litigon-logo.png";
 
 const pages = [
   {
-    name: "Features",
+    name: "Services",
     href: "/features"
   },
   {
-    name: "Pricing",
-    href: "/pricing"
+    name: "Projects",
+    href: "/projects"
   },
   {
-    name: "Company",
+    name: "About",
     href: "/company"
   },
   {
@@ -98,7 +99,7 @@ const Navbar = () => {
       )}>
       <Container className="flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 xl:w-[35%] md:w-[30%] w-fit">
-          <img src="/images/common/logo.svg" alt="Revio" className="h-[21px] max-w-[87px]" />
+          <img src={litigonLogo} alt="Litigon" className="h-[26px] w-auto" />
         </Link>
 
         {/* <!-- Mobile --> */}
@@ -165,7 +166,7 @@ const Navbar = () => {
                 <SheetHeader className="flex flex-row justify-between border-b border-foreground">
                   <SheetTitle className="flex items-center">
                     <Link to="/" className="flex items-center" onClick={closeSheet}>
-                      <img src="/images/common/logo.svg" alt="Revio" className="h-4" />
+                      <img src={litigonLogo} alt="Litigon" className="h-5 w-auto" />
                     </Link>
                   </SheetTitle>
                   <div className="flex items-center gap-2">
@@ -185,7 +186,7 @@ const Navbar = () => {
                     ))}
                     {!user && (
                       <Button asChild variant="gray" size="default" className="mt-4 w-full">
-                        <Link to="/signup" onClick={closeSheet}>Get Started</Link>
+                        <Link to="/contact" onClick={closeSheet}>Plan your event</Link>
                       </Button>
                     )}
                   </div>
@@ -256,7 +257,7 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <Button asChild variant="gray" size="default">
-              <Link to="/signup">Get Started</Link>
+              <Link to="/contact">Plan your event</Link>
             </Button>
           )}
         </div>

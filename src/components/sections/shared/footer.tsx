@@ -2,6 +2,7 @@ import Container from "@/components/container";
 import NewsletterForm from "@/components/newsletter-form";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { Link } from "react-router-dom";
+import litigonLogo from "@/assets/litigon/litigon-logo.png";
 
 const pagesLinks = [
   {
@@ -9,16 +10,16 @@ const pagesLinks = [
     href: "/",
   },
   {
-    title: "Features",
+    title: "Services",
     href: "/features",
   },
   {
-    title: "Company",
-    href: "/company",
+    title: "Projects",
+    href: "/projects",
   },
   {
-    title: "Pricing",
-    href: "/pricing",
+    title: "About",
+    href: "/company",
   },
   {
     title: "Blog",
@@ -30,22 +31,22 @@ const pagesLinks = [
   },
 ];
 
-const innerLinks = [
+const serviceLinks = [
   {
-    title: "Pricing Single",
-    href: "/pricing/starter",
+    title: "Conferences & summits",
+    href: "/features",
   },
   {
-    title: "Blog Single",
-    href: "/blog/future-of-digital-payments-2024",
+    title: "Exhibitions & stands",
+    href: "/features",
   },
   {
-    title: "Coming soon",
-    href: "/coming-soon",
+    title: "Cultural seasons",
+    href: "/features",
   },
   {
-    title: "Download",
-    href: "/download",
+    title: "Show production",
+    href: "/features",
   },
 ];
 
@@ -66,19 +67,19 @@ const Footer = () => {
 
             <div>
               <Link to="/">
-                <img className="mb-6" src="/images/common/logo.svg" alt="logo" />
+                <img className="mb-6 h-7 w-auto" src={litigonLogo} alt="Litigon" />
               </Link>
               <p className="text-muted">
-                From startups launching their first product to mature enterprises scaling globally.
+                Events and conferences management in the Kingdom of Saudi Arabia. We create exceptional impact.
               </p>
             </div>
 
             <div className="space-y-2.5">
               <p className="text-white">
-                Head Quarter:
+                Head Office:
               </p>
               <p className="text-muted">
-                210 Bishop, 2 th Floor, <br />London, EC2M 4NR, United Kingdom
+                Riyadh, <br />Kingdom of Saudi Arabia
               </p>
             </div>
           </div>
@@ -109,9 +110,9 @@ const Footer = () => {
             >
               {/* Utility Links */}
               <div>
-                <h3 className="text-lg font-semibold mb-6">Innerpages</h3>
+                <h3 className="text-lg font-semibold mb-6">Services</h3>
                 <ul className="space-y-3">
-                  {innerLinks.map((link, index) => (
+                  {serviceLinks.map((link, index) => (
                     <li key={index}>
                       <Link to={link.href} className="text-muted hover:text-white">
                         {link.title}
@@ -124,10 +125,10 @@ const Footer = () => {
               {/* Newsletter */}
               <div>
                 <h3 className="text-lg font-semibold mb-2">
-                  Stay Updated with Revio
+                  Stay updated with Litigon
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Get the latest insights on payments.
+                  News from our events and cultural seasons.
                 </p>
                 <NewsletterForm
                   buttonVariant="secondary"
@@ -152,7 +153,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} Revio. Made in Lovable.
+              © {new Date().getFullYear()} Litigon. All rights reserved.
             </p>
 
             {/* Legal Links */}

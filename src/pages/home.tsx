@@ -1,82 +1,47 @@
 import Layout from "@/components/layout";
-import Features from "@/components/sections/home/features";
-import Hero from "@/components/sections/home/hero";
 import SEO from "@/components/seo";
-import { appConfig } from "@/utils/app-config";
-import { lazy, Suspense, useRef } from "react";
+import Hero from "@/components/sections/litigon/hero";
+import Services from "@/components/sections/litigon/services";
+import { lazy, Suspense } from "react";
 
-// Lazy load below-the-fold components for code splitting
-const Blog = lazy(() => import("@/components/sections/home/blog"));
-const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
-const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
-const Integrations = lazy(() => import("@/components/sections/home/integrations"));
-const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
-const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
-const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
+const Projects = lazy(() => import("@/components/sections/litigon/projects"));
+const Showcase = lazy(() => import("@/components/sections/litigon/showcase"));
+const Approach = lazy(() => import("@/components/sections/litigon/approach"));
 
 const Home = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const metaTitle = "SaaS Website Design Template | Lovable";
-  const metaDescription = "Launch a fintech SaaS marketing site with blog CMS and admin dashboard. Remix this template and go live in hours with pricing pages, SEO, and auth built in.";
+  const metaTitle = "Litigon | Events & Conferences Management in Saudi Arabia";
+  const metaDescription =
+    "Litigon plans, produces and manages conferences, exhibitions, cultural seasons and shows across Saudi Arabia — strategy, creative, production and logistics in one team.";
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
-    "name": appConfig.name,
-    "description": appConfig.description,
-    "url": appConfig.url,
-    "logo": appConfig.logo,
-    "image": appConfig.ogImage,
-    "applicationCategory": "FinanceApplication, BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD",
-      "description": "Start for free with our basic plan"
-    },
-    "areaServed": "Worldwide",
-    "serviceType": "Payment Processing",
-    "knowsAbout": [
-      "PCI DSS Compliance",
-      "Merchant Accounts",
-      "Point of Sale Systems",
-      "Digital Wallets",
-      "Global Payouts"
-    ]
+    "@type": "Organization",
+    name: "Litigon",
+    description: metaDescription,
+    areaServed: "Saudi Arabia",
+    knowsAbout: [
+      "Event management",
+      "Conference management",
+      "Exhibition stands",
+      "Crowd management",
+      "Drone shows",
+      "VIP hospitality",
+    ],
   };
 
   return (
     <>
-      <SEO
-        title={metaTitle}
-        description={metaDescription}
-        canonicalUrl="/"
-        ogType="profile"
-        jsonLd={jsonLd}
-      />
+      <SEO title={metaTitle} description={metaDescription} canonicalUrl="/" jsonLd={jsonLd} />
       <Layout>
-        <Hero heroRef={heroRef} />
-        <Features heroRef={heroRef} />
+        <Hero />
+        <Services />
         <Suspense fallback={null}>
-          <CoreFeatures />
+          <Showcase />
         </Suspense>
         <Suspense fallback={null}>
-          <MobileApp />
+          <Projects limit={6} />
         </Suspense>
         <Suspense fallback={null}>
-          <BusinessAccount />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Integrations />
-        </Suspense>
-        <Suspense fallback={null}>
-          <SecurityCompliance />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Testimonials />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Blog />
+          <Approach />
         </Suspense>
       </Layout>
     </>

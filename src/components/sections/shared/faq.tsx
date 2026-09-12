@@ -8,36 +8,36 @@ import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "What is Revio?",
-    answer: "Revio is a secure and scalable payment gateway that helps businesses accept, process, and manage online payments worldwide. With features like real-time processing, multi-currency support, recurring billing, and fraud prevention, Revio makes payments seamless for both businesses and their customers.",
+    question: "What does Litigon do?",
+    answer: "Litigon is an events and conferences management company in Saudi Arabia. We handle strategy, creative direction, technical production, hospitality and on-site operations for conferences, exhibitions, cultural seasons, sports weekends and national celebrations.",
   },
   {
-    question: "How long does it take to set up Revio?",
-    answer: "Setting up Revio is quick and straightforward. Most businesses can get started within minutes. Our onboarding process typically takes 1-2 business days for account verification and integration setup. We provide comprehensive documentation and support to help you get up and running as fast as possible.",
+    question: "How early should we contact you?",
+    answer: "The earlier the better. Large conferences and cultural seasons usually need two to six months of preparation, while smaller activations and exhibition stands can be delivered in a few weeks. Tell us your date and we will tell you honestly what is possible.",
   },
   {
-    question: "Which payment methods does Revio support?",
-    answer: "Revio supports all major payment methods including credit and debit cards (Visa, Mastercard, American Express), digital wallets (Apple Pay, Google Pay, PayPal), bank transfers, and local payment methods in over 150 countries. We continuously add new payment methods based on market demand.",
+    question: "Do you manage the whole event or only parts of it?",
+    answer: "Both. Many clients ask us to run the event end to end, while others bring us in for a specific element such as stage production, an exhibition stand, crowd management or VIP reception.",
   },
   {
-    question: "Is Revio safe and compliant?",
-    answer: "Yes, Revio is fully PCI DSS Level 1 compliant and adheres to the highest security standards. We use end-to-end encryption, tokenization, and advanced fraud detection systems to protect your transactions. We're also compliant with GDPR, SOC 2, and other regional regulations.",
+    question: "Can you handle VIPs and official delegations?",
+    answer: "Yes. Our protocol-trained hosts manage reception, lounges, transport and private aviation arrangements for ministers, sponsors and official delegations.",
   },
   {
-    question: "Can I use Revio for subscription billing?",
-    answer: "Absolutely! Revio offers robust subscription and recurring billing features. You can set up flexible billing cycles, manage customer subscriptions, handle upgrades and downgrades, and automate recurring payments. Our Pro and Enterprise plans include advanced subscription management tools.",
+    question: "Do you produce drone shows and fireworks?",
+    answer: "Yes. We produce choreographed drone formations and licensed pyrotechnic displays synchronised with music, stage moments and screen content.",
   },
   {
-    question: "Does Revio work for international businesses?",
-    answer: "Yes, Revio is designed for global businesses. We support multi-currency transactions, cross-border payments, and local payment methods in over 150 countries. Our platform handles currency conversion, international compliance, and regulatory requirements automatically.",
+    question: "Where do you work?",
+    answer: "We work across the Kingdom of Saudi Arabia, with teams and suppliers able to mobilise for events in any region, including remote desert locations.",
   },
   {
-    question: "What support options are available?",
-    answer: "Revio offers multiple support tiers. Starter plans include email support, Pro plans add 24/7 live chat support, and Enterprise plans include dedicated account managers, SLA guarantees, and priority support. We also provide comprehensive documentation, API guides, and developer resources.",
+    question: "How is pricing decided?",
+    answer: "Every event is quoted individually based on scale, venue, production requirements and duration. After an initial conversation we send a detailed proposal with a clear breakdown.",
   },
   {
-    question: "Can I customize the checkout experience?",
-    answer: "Yes, Revio offers flexible customization options. You can customize the look and feel of hosted checkout pages, use our API to build fully custom checkout experiences, and integrate with your existing design system. Enterprise plans include advanced customization and white-label options.",
+    question: "Can you support Saudi Vision 2030 programmes?",
+    answer: "Yes. Much of our work supports national and cultural programmes tied to Saudi Vision 2030, from public seasons to international pavilions.",
   },
 ];
 
@@ -53,7 +53,7 @@ const FAQ = () => {
               <h2 className="h2 md:mb-6 mb-3">Frequently asked questions</h2>
               <Button asChild>
                 <Link to="/contact">
-                  Book a free call <ArrowRight className="w-4 h-4" />
+                  Talk to our team <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
             </AnimateOnView>

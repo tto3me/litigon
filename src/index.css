@@ -5,49 +5,49 @@
 @layer base {
   :root {
 
-    --background: 255 255 255;
-    --foreground: 20 20 20;
+    --background: 245 242 238;
+    --foreground: 26 26 26;
 
-    --card: 244 244 244;
-    --card-foreground: 50 50 50;
+    --card: 237 232 226;
+    --card-foreground: 34 34 34;
 
-    --primary: 97 66 255;
+    --primary: 240 90 40;
     --primary-foreground: 255 255 255;
 
-    --secondary: 244 244 244;
-    --secondary-foreground: 50 50 50;
+    --secondary: 237 232 226;
+    --secondary-foreground: 34 34 34;
 
-    --muted: 190 190 190;
-    --muted-foreground: 110 110 110;
+    --muted: 176 172 166;
+    --muted-foreground: 104 100 94;
 
-    --accent: 97 66 255;
+    --accent: 240 90 40;
     --accent-foreground: 255 255 255;
 
-    --border: 230 230 230;
-    --input: 50 50 50;
+    --border: 224 218 211;
+    --input: 34 34 34;
 
     --radius: 1.5rem;
 
-    --revio-obsidian: 20 20 20;
-    --revio-charcoal: 20 20 20;
-    --revio-violet: 97 66 255;
-    --revio-violet-glow: 97 66 255;
-    --revio-emerald: 100 100 100;
-    --revio-light: 244 244 244;
+    --revio-obsidian: 26 26 26;
+    --revio-charcoal: 34 34 34;
+    --revio-violet: 240 90 40;
+    --revio-violet-glow: 240 90 40;
+    --revio-emerald: 196 74 27;
+    --revio-light: 245 242 238;
     --revio-white: 255 255 255;
-    --revio-light-orchid: 216 160 223;
-    --revio-light-pink: 246 226 248;
-    --revio-light-green: 204 255 240;
+    --revio-light-orchid: 245 178 148;
+    --revio-light-pink: 253 232 222;
+    --revio-light-green: 250 236 214;
 
     /* Gradients */
-    --gradient-violet: linear-gradient(135deg, rgba(97, 66, 255, 1), rgba(139, 102, 255, 1));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
+    --gradient-violet: linear-gradient(135deg, rgba(240, 90, 40, 1), rgba(196, 74, 27, 1));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 13%));
     --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 
     /* Shadows */
-    --shadow-violet-glow: 0 0 60px rgba(97, 66, 255, 0.3);
-    --shadow-card: 0 4px 24px rgba(20, 20, 20, 0.08);
-    --shadow-elevated: 0 20px 60px rgba(20, 20, 20, 0.15);
+    --shadow-violet-glow: 0 0 60px rgba(240, 90, 40, 0.35);
+    --shadow-card: 0 4px 24px rgba(26, 26, 26, 0.08);
+    --shadow-elevated: 0 20px 60px rgba(26, 26, 26, 0.15);
 
     /* Spacing */
     --spacing-base: 16px;
@@ -66,7 +66,7 @@
   }
 
   body {
-    @apply text-foreground bg-white text-base leading-[1.4] antialiased;
+    @apply text-foreground bg-background text-base leading-[1.4] antialiased;
     font-family: 'Inter Tight', system-ui, sans-serif;
   }
 
