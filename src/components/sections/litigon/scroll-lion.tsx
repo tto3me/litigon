@@ -18,7 +18,8 @@ const BASE = 96;
 const MID_PROGRESS = 0.45;
 
 // Viewport height fraction where the ecosystem heading rests when docked.
-const DOCK_VIEWPORT_Y = 0.4;
+// Lower = stop earlier, while the heading is just arriving.
+const DOCK_VIEWPORT_Y = 0.15;
 
 // Gap between the lion and the word "Impact" / the ecosystem heading.
 const GAP = 40;
