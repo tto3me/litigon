@@ -87,6 +87,73 @@ const zh: Dictionary = {
   "Exhibitions & stands": "展览与展台", "Cultural seasons": "文化季", "Show production": "演出制作", "Select language": "选择语言", English: "English", Arabic: "العربية", French: "Français", Chinese: "中文", Close: "关闭"
 };
 
+Object.assign(ar, {
+  "Litigon designs, produces and manages conferences, exhibitions and national celebrations across the Kingdom of Saudi Arabia — from the first idea to the final firework.": "تصمم ليتغون وتنتج وتدير المؤتمرات والمعارض والاحتفالات الوطنية في أنحاء المملكة، من الفكرة الأولى حتى اللحظة الختامية.",
+  "End-to-end management of conferences, exhibitions and corporate events: strategy, creative direction, production and on-site logistics.": "إدارة شاملة للمؤتمرات والمعارض وفعاليات الشركات، من الاستراتيجية والتوجيه الإبداعي إلى الإنتاج والخدمات اللوجستية.",
+  "Agenda design, speaker and delegation coordination, registration and hospitality for high-level summits.": "تصميم جداول الأعمال وتنسيق المتحدثين والوفود والتسجيل والضيافة للقمم رفيعة المستوى.",
+  "Interactive installations, smart registration and data-driven experiences that make every guest feel recognised.": "تجهيزات تفاعلية وتسجيل ذكي وتجارب مدعومة بالبيانات تمنح كل ضيف تجربة شخصية.",
+  "Campaign planning, content production and media coverage that build attendance before the doors open.": "تخطيط الحملات وإنتاج المحتوى والتغطية الإعلامية لبناء الحضور قبل انطلاق الفعالية.",
+  "Programming and operating cultural seasons, festivals and national celebrations for wide public audiences.": "برمجة وتشغيل المواسم الثقافية والمهرجانات والاحتفالات الوطنية للجمهور الواسع.",
+  "Flow planning, access control and safety operations for venues of every scale.": "تخطيط حركة الزوار والتحكم بالدخول وعمليات السلامة للمواقع بمختلف أحجامها.",
+  "Protocol, reception and private hospitality for ministers, sponsors and official delegations.": "مراسم واستقبال وضيافة خاصة للوزراء والرعاة والوفود الرسمية.",
+  "Private Aviation": "الطيران الخاص",
+  "Private jet arrangements, airport handling and ground transfers for guests and delegations.": "ترتيبات الطائرات الخاصة وخدمات المطارات والنقل الأرضي للضيوف والوفود.",
+  "Drone shows, fireworks, stage design, lighting and sound engineered for one unforgettable moment.": "عروض الدرون والألعاب النارية وتصميم المسارح والإضاءة والصوت للحظات لا تُنسى.",
+  "Choreographed drone formations that turn the night sky into your message.": "تشكيلات درون متناغمة تحول سماء الليل إلى رسالتك.",
+  "Licensed pyrotechnic displays synchronised to music and stage moments.": "عروض ألعاب نارية مرخصة ومتزامنة مع الموسيقى ولحظات المسرح.",
+  "Smart registration, crowd analytics and interactive content driven by AI.": "تسجيل ذكي وتحليلات للحشود ومحتوى تفاعلي مدعوم بالذكاء الاصطناعي.",
+  "Halls, stages, translation and hospitality built for high-level agendas.": "قاعات ومسارح وترجمة وضيافة مصممة للأجندات رفيعة المستوى.",
+  "Protocol-trained hosts, lounges and transport for official delegations.": "مضيفون مدربون على البروتوكول وصالات ونقل للوفود الرسمية.",
+  "Private jet charters, airport handling and seamless ground transfers.": "استئجار طائرات خاصة وخدمات مطارات ونقل أرضي سلس.",
+  "One team from the first brief to the final report, supporting the ambitions of Saudi Vision 2030.": "فريق واحد من موجز العمل الأول حتى التقرير النهائي، دعماً لطموحات رؤية السعودية 2030.",
+  "We start with your objective, audience and budget, then shape the event concept around it.": "نبدأ بهدفك وجمهورك وميزانيتك، ثم نبني مفهوم الفعالية حولها.",
+  "Identity, stage design, content and show flow developed as one visual story.": "نطور الهوية وتصميم المسرح والمحتوى وتسلسل العرض كقصة بصرية واحدة.",
+  "Build, staging, lighting, sound and technology delivered by our own crews.": "تنفذ فرقنا أعمال البناء والمسارح والإضاءة والصوت والتقنية.",
+  "Logistics, hospitality, crowd flow and reporting on the day and after it.": "الخدمات اللوجستية والضيافة وحركة الحشود والتقارير أثناء الفعالية وبعدها.",
+  "Events and conferences management in the Kingdom of Saudi Arabia. We create exceptional impact.": "إدارة الفعاليات والمؤتمرات في المملكة العربية السعودية. نصنع تأثيراً استثنائياً.",
+  "Kingdom of Saudi Arabia": "المملكة العربية السعودية",
+  "Litigon was founded to redefine the events and experiences industry through integrated solutions that combine strategic thinking, creative excellence, and flawless execution. We transform ambitious visions into world-class experiences that inspire audiences, elevate brands, and reinforce Saudi Arabia's position as a global destination for events, business tourism, and entertainment.": "تأسست ليتغون لإعادة تعريف صناعة الفعاليات والتجارب عبر حلول متكاملة تجمع التفكير الاستراتيجي والإبداع والتنفيذ المتقن. نحول الرؤى الطموحة إلى تجارب عالمية تلهم الجمهور وترتقي بالعلامات التجارية وتعزز مكانة المملكة كوجهة عالمية للفعاليات والترفيه.",
+  "Shaping the future of the events industry in Saudi Arabia": "نرسم مستقبل صناعة الفعاليات في المملكة العربية السعودية",
+  "Turning bold ideas into unforgettable experiences": "نحول الأفكار الجريئة إلى تجارب لا تُنسى",
+  "Four principles behind every Litigon delivery": "أربعة مبادئ تقود كل إنجاز في ليتغون",
+  "Success partners": "شركاء النجاح", "Successful events delivered": "فعالية ناجحة تم تنفيذها", "Operational & technical management hours": "ساعة إدارة تشغيلية وتقنية", "Artists & influencers managed": "فنان ومؤثر تمت إدارتهم",
+  "Planning, development, execution and operations": "التخطيط والتطوير والتنفيذ والتشغيل"
+});
+
+Object.assign(fr, {
+  "Litigon designs, produces and manages conferences, exhibitions and national celebrations across the Kingdom of Saudi Arabia — from the first idea to the final firework.": "Litigon conçoit, produit et gère des conférences, expositions et célébrations nationales dans toute l’Arabie saoudite, de la première idée au moment final.",
+  "End-to-end management of conferences, exhibitions and corporate events: strategy, creative direction, production and on-site logistics.": "Gestion complète des conférences, expositions et événements d’entreprise : stratégie, direction créative, production et logistique sur site.",
+  "Agenda design, speaker and delegation coordination, registration and hospitality for high-level summits.": "Conception des programmes, coordination des intervenants et délégations, inscriptions et accueil pour les sommets de haut niveau.",
+  "Interactive installations, smart registration and data-driven experiences that make every guest feel recognised.": "Installations interactives, inscriptions intelligentes et expériences personnalisées grâce aux données.",
+  "Campaign planning, content production and media coverage that build attendance before the doors open.": "Planification de campagnes, production de contenu et couverture médiatique pour mobiliser le public en amont.",
+  "Programming and operating cultural seasons, festivals and national celebrations for wide public audiences.": "Programmation et exploitation de saisons culturelles, festivals et célébrations nationales grand public.",
+  "Flow planning, access control and safety operations for venues of every scale.": "Planification des flux, contrôle des accès et sécurité pour des sites de toute taille.",
+  "Protocol, reception and private hospitality for ministers, sponsors and official delegations.": "Protocole, accueil et hospitalité privée pour ministres, sponsors et délégations officielles.",
+  "Private Aviation": "Aviation privée", "Private jet arrangements, airport handling and ground transfers for guests and delegations.": "Organisation de jets privés, assistance aéroportuaire et transferts terrestres pour les invités et délégations.",
+  "Drone shows, fireworks, stage design, lighting and sound engineered for one unforgettable moment.": "Spectacles de drones, feux d’artifice, scénographie, lumière et son conçus pour un moment inoubliable.",
+  "Choreographed drone formations that turn the night sky into your message.": "Des chorégraphies de drones qui transforment le ciel nocturne en message.", "Licensed pyrotechnic displays synchronised to music and stage moments.": "Des spectacles pyrotechniques autorisés, synchronisés avec la musique et la scène.", "Smart registration, crowd analytics and interactive content driven by AI.": "Inscriptions intelligentes, analyse des foules et contenus interactifs propulsés par l’IA.", "Halls, stages, translation and hospitality built for high-level agendas.": "Salles, scènes, interprétation et accueil adaptés aux programmes de haut niveau.", "Protocol-trained hosts, lounges and transport for official delegations.": "Hôtes formés au protocole, salons et transport pour les délégations officielles.", "Private jet charters, airport handling and seamless ground transfers.": "Affrètement de jets privés, assistance aéroportuaire et transferts fluides.",
+  "One team from the first brief to the final report, supporting the ambitions of Saudi Vision 2030.": "Une seule équipe, du premier brief au rapport final, au service des ambitions de la Vision saoudienne 2030.", "We start with your objective, audience and budget, then shape the event concept around it.": "Nous partons de votre objectif, de votre public et de votre budget pour façonner le concept.", "Identity, stage design, content and show flow developed as one visual story.": "Identité, scénographie, contenu et déroulé sont conçus comme une seule histoire visuelle.", "Build, staging, lighting, sound and technology delivered by our own crews.": "Construction, scène, lumière, son et technologie sont réalisés par nos propres équipes.", "Logistics, hospitality, crowd flow and reporting on the day and after it.": "Logistique, accueil, gestion des flux et rapports pendant et après l’événement.",
+  "Events and conferences management in the Kingdom of Saudi Arabia. We create exceptional impact.": "Gestion d’événements et de conférences en Arabie saoudite. Nous créons un impact exceptionnel.", "Kingdom of Saudi Arabia": "Royaume d’Arabie saoudite",
+  "Shaping the future of the events industry in Saudi Arabia": "Façonner l’avenir de l’événementiel en Arabie saoudite", "Turning bold ideas into unforgettable experiences": "Transformer les idées audacieuses en expériences inoubliables", "Four principles behind every Litigon delivery": "Quatre principes au cœur de chaque réalisation Litigon", "Success partners": "Partenaires de réussite", "Successful events delivered": "Événements réalisés avec succès", "Operational & technical management hours": "Heures de gestion opérationnelle et technique", "Artists & influencers managed": "Artistes et influenceurs accompagnés", "Planning, development, execution and operations": "Planification, développement, exécution et opérations"
+});
+
+Object.assign(zh, {
+  "Litigon designs, produces and manages conferences, exhibitions and national celebrations across the Kingdom of Saudi Arabia — from the first idea to the final firework.": "Litigon 在沙特各地设计、制作和管理会议、展览及国家庆典，从最初构想到精彩收官。",
+  "End-to-end management of conferences, exhibitions and corporate events: strategy, creative direction, production and on-site logistics.": "为会议、展览和企业活动提供端到端管理，包括战略、创意指导、制作和现场物流。",
+  "Agenda design, speaker and delegation coordination, registration and hospitality for high-level summits.": "为高级别峰会提供议程设计、嘉宾与代表团协调、注册和接待服务。",
+  "Interactive installations, smart registration and data-driven experiences that make every guest feel recognised.": "通过互动装置、智能注册和数据驱动体验，让每位来宾都感到备受重视。",
+  "Campaign planning, content production and media coverage that build attendance before the doors open.": "通过营销策划、内容制作和媒体报道，在活动开始前吸引受众。",
+  "Programming and operating cultural seasons, festivals and national celebrations for wide public audiences.": "为广大公众策划并运营文化季、节庆和国家庆典。",
+  "Flow planning, access control and safety operations for venues of every scale.": "为各种规模场地提供人流规划、出入控制和安全运营。",
+  "Protocol, reception and private hospitality for ministers, sponsors and official delegations.": "为部长、赞助商和官方代表团提供礼宾、接待及专属服务。",
+  "Private Aviation": "私人航空", "Private jet arrangements, airport handling and ground transfers for guests and delegations.": "为来宾和代表团安排私人飞机、机场服务和地面接送。",
+  "Drone shows, fireworks, stage design, lighting and sound engineered for one unforgettable moment.": "无人机表演、烟花、舞台设计、灯光和音响，共同打造难忘时刻。",
+  "Choreographed drone formations that turn the night sky into your message.": "以编排精准的无人机阵列表演，让夜空传递您的讯息。", "Licensed pyrotechnic displays synchronised to music and stage moments.": "经许可的烟花特效，与音乐和舞台时刻精准同步。", "Smart registration, crowd analytics and interactive content driven by AI.": "由人工智能驱动的智能注册、人群分析和互动内容。", "Halls, stages, translation and hospitality built for high-level agendas.": "为高级别议程提供会场、舞台、翻译和接待服务。", "Protocol-trained hosts, lounges and transport for official delegations.": "为官方代表团提供专业礼宾人员、贵宾室和交通服务。", "Private jet charters, airport handling and seamless ground transfers.": "私人飞机包机、机场服务和无缝地面接送。",
+  "One team from the first brief to the final report, supporting the ambitions of Saudi Vision 2030.": "从初次需求到最终报告，由一支团队全程负责，助力沙特 2030 愿景。", "We start with your objective, audience and budget, then shape the event concept around it.": "我们从您的目标、受众和预算出发，构建活动概念。", "Identity, stage design, content and show flow developed as one visual story.": "将品牌形象、舞台设计、内容和演出流程融为一个视觉故事。", "Build, staging, lighting, sound and technology delivered by our own crews.": "由自有团队完成搭建、舞台、灯光、音响和技术实施。", "Logistics, hospitality, crowd flow and reporting on the day and after it.": "负责活动当日及之后的物流、接待、人流和报告。",
+  "Events and conferences management in the Kingdom of Saudi Arabia. We create exceptional impact.": "沙特阿拉伯王国的活动与会议管理专家。我们创造非凡影响力。", "Kingdom of Saudi Arabia": "沙特阿拉伯王国",
+  "Shaping the future of the events industry in Saudi Arabia": "塑造沙特活动行业的未来", "Turning bold ideas into unforgettable experiences": "将大胆创意转化为难忘体验", "Four principles behind every Litigon delivery": "成就每个 Litigon 项目的四项原则", "Success partners": "成功合作伙伴", "Successful events delivered": "成功交付的活动", "Operational & technical management hours": "运营与技术管理小时", "Artists & influencers managed": "合作艺人与影响者", "Planning, development, execution and operations": "规划、开发、执行与运营"
+});
+
 const dictionaries: Record<Locale, Dictionary> = { en: {}, ar, fr, zh };
 const STORAGE_KEY = "litigon-language";
 
