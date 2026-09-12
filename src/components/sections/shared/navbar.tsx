@@ -19,6 +19,10 @@ import litigonLogo from "@/assets/litigon/litigon-logo.png";
 
 const pages = [
   {
+    name: "Home",
+    href: "/"
+  },
+  {
     name: "Services",
     href: "/features"
   },
