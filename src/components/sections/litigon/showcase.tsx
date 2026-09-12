@@ -110,8 +110,19 @@ const Showcase = () => {
                       : ""
                   }`}
                 >
+                  <div
+                    className={
+                      expandedItem === item.title ? "w-full max-w-xl" : "w-full"
+                    }
+                  >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="h6">{item.title}</h3>
+                    <h3
+                      className={
+                        expandedItem === item.title ? "h4" : "h6"
+                      }
+                    >
+                      {item.title}
+                    </h3>
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30" aria-hidden="true">
                       {expandedItem === item.title ? <Minus /> : <Plus />}
                     </span>
