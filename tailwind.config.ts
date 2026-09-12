@@ -11,13 +11,18 @@ export default {
   		center: true
   	},
   	extend: {
-  		fontFamily: {
-  			sans: [
-  				'Inter Tight',
-  				'system-ui',
-  				'sans-serif'
-  			]
-  		},
+    		fontFamily: {
+    			sans: [
+    				'Inter Tight',
+    				'system-ui',
+    				'sans-serif'
+    			],
+    			display: [
+    				'Playfair Display',
+    				'Georgia',
+    				'serif'
+    			]
+    		},
   		colors: {
   			border: 'rgb(var(--border))',
   			input: 'rgb(var(--input))',
