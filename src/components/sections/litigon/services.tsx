@@ -1,5 +1,8 @@
 import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import litigonLion from "@/assets/litigon/litigon-lion.png";
 import {
   CalendarCheck,
   Cpu,
@@ -69,12 +72,66 @@ export const services = [
   },
 ];
 
-const Services = ({ heading = "An integrated ecosystem", intro }: { heading?: string; intro?: string }) => {
+const Services = ({ heading = "An integrated ecosystem", intro, heroRef }: { heading?: string; intro?: string; heroRef?: React.RefObject<HTMLElement | null> }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const lionContainerRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "start start"],
+  });
+
+  useEffect(() => {
+    const calculateOffset = () => {
+      if (!heroRef?.current || !lionContainerRef.current) return;
+
+      const heroRect = heroRef.current.getBoundingClientRect();
+      const containerRect = lionContainerRef.current.getBoundingClientRect();
+
+      const heroCenterX = heroRect.left + heroRect.width / 2;
+      const heroCenterY = heroRect.top + heroRect.height / 2 + window.scrollY + 100;
+
+      const containerCenterX = containerRect.left + containerRect.width / 2;
+      const containerCenterY = containerRect.top + containerRect.height / 2 + window.scrollY;
+
+      setOffset({ x: heroCenterX - containerCenterX, y: heroCenterY - containerCenterY });
+    };
+
+    const timeoutId = setTimeout(calculateOffset, 100);
+    window.addEventListener("resize", calculateOffset);
+    window.addEventListener("scroll", calculateOffset, { passive: true });
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", calculateOffset);
+      window.removeEventListener("scroll", calculateOffset);
+    };
+  }, [heroRef]);
+
+  const x = useTransform(scrollYProgress, [0, 1], [offset.x, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [offset.y, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [3, 1]);
+
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section ref={sectionRef} className="bg-background py-16 md:py-24">
       <Container>
         <AnimateOnView once blur className="mb-12 max-w-[720px]">
-          <h2 className="h2 mb-5">{heading}</h2>
+          <div className="mb-5 flex items-center gap-4">
+            <div ref={lionContainerRef} className="h-14 w-14 md:h-16 md:w-16 shrink-0">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={isDesktop && heroRef ? { x, y, scale } : {}}>
+                <img src={litigonLion} alt="Litigon lion mark" className="h-full w-full object-contain" />
+              </motion.div>
+            </div>
+            <h2 className="h2">{heading}</h2>
+          </div>
           <p className="paragraph-large text-muted-foreground">
             {intro ??
               "Strategy, creativity, production and logistics under one roof — so nothing falls between suppliers."}

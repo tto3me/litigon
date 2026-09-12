@@ -5,9 +5,9 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/litigon/about-conference-crowd.jpg";
 
-const Hero = () => {
+const Hero = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null> }) => {
   return (
-    <section className="relative bg-black text-white overflow-hidden">
+    <section ref={heroRef} className="relative bg-black text-white overflow-hidden">
       <div className="absolute inset-0">
         <img
           src={heroImage}
