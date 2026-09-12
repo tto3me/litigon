@@ -6,31 +6,29 @@ import BlogBreadcrumbs from "@/components/sections/blog/blog-breadcrumbs";
 
 const BlogHero = () => {
   return (
-    <section className="relative bg-black overflow-hidden banner-top-padding pb-[200px] lg:pb-[301px]">
+    <section className="relative bg-foreground overflow-hidden banner-top-padding pb-[200px] lg:pb-[301px]">
       <Container className="relative z-10">
         <BlogBreadcrumbs
           className="mb-8 flex justify-center"
-          items={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }]}
+          items={[{ label: "Home", to: "/" }, { label: "Newsroom", to: "/blog" }]}
         />
 
-        {/* Trust badges */}
         <StaggerContainer className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4 xl:gap-6 mb-4 md:mb-8">
           <AnimateOnView blur>
             <Badge variant="color" className="gap-2">
-              One seamless payment at a time.
+              Company updates
             </Badge>
           </AnimateOnView>
           <AnimateOnView blur delay={0.1}>
             <Badge variant="color" className="gap-2">
-              <span>Use over <span className="text-white">12K+</span> businesses worldwide.</span>
+              Press releases & project stories
             </Badge>
           </AnimateOnView>
         </StaggerContainer>
 
-        {/* Main headline */}
         <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
           <h1 className="h1 text-white">
-            Stay ahead with insights on payments & fintech
+            News from behind Saudi Arabia&apos;s biggest events
           </h1>
         </AnimateOnView>
       </Container>
@@ -39,4 +37,3 @@ const BlogHero = () => {
 };
 
 export default BlogHero;
-
