@@ -23,6 +23,7 @@ const DOCK_VIEWPORT_Y = 0.15;
 
 // Gap between the lion and the word "Impact" / the ecosystem heading.
 const GAP = 40;
+const ECO_GAP = 10;
 
 // How high the lion leaps above the straight path on each leg of the journey.
 const ARC_HEIGHT = 130;
