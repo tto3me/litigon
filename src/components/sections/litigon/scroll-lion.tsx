@@ -112,16 +112,22 @@ const ScrollLion = () => {
 
       // Work in document space, then bring back to viewport space.
       // The lion leaps in an arc: it rises above the straight path
-      // mid-leg and lands exactly on each stop.
-      const arc = Math.sin(Math.PI * t) * ARC_HEIGHT;
-      const docX = lerp(from.x, to.x, t);
-      const docY = lerp(from.y, to.y, t) - arc;
+      // mid-leg and lands exactly on each stop. The arc is capped so
+      // the lion never rises into the top bar — near the logo (where
+      // the path starts inside the bar) the cap is zero, so the start
+      // position stays exactly on the logo.
+      const straightX = lerp(from.x, to.x, t);
+      const straightY = lerp(from.y, to.y, t);
       const size = lerp(from.size, to.size, t);
 
-      x.set(docX - scrollY - BASE / 2);
+      const minCenterY = logoRect.bottom + 8 + size / 2;
+      const maxArc = Math.max(0, straightY - scrollY - minCenterY);
+      const arc = Math.min(Math.sin(Math.PI * t) * ARC_HEIGHT, maxArc);
 
-      // The lion renders at z-40, below the navbar (z-50), so it
-      // naturally passes under the top bar — no position clamp needed.
+      const docX = straightX;
+      const docY = straightY - arc;
+
+      x.set(docX - scrollY - BASE / 2);
       y.set(docY - scrollY - BASE / 2);
 
       scale.set(size / BASE);
