@@ -21,10 +21,11 @@ const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
   const selected = languages.find((language) => language.value === locale) ?? languages[0];
 
   return (
+    <div data-i18n-ignore>
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="ghost"
+          variant="gray"
           size="sm"
           aria-label={t("Select language")}
           className="h-10 gap-2 border border-white/15 bg-white/5 px-3 text-white hover:bg-white/10 hover:text-white"
@@ -47,6 +48,7 @@ const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
+    </div>
   );
 };
 

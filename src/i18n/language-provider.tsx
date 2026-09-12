@@ -33,7 +33,7 @@ const ar: Dictionary = {
   FAQs: "الأسئلة الشائعة", "Frequently asked questions": "الأسئلة الأكثر شيوعاً", "Everything you need to know before we start planning together.": "كل ما تحتاج إلى معرفته قبل أن نبدأ التخطيط معاً.", "Talk to our team": "تحدث مع فريقنا",
   "What does Litigon do?": "ماذا تقدم ليتغون؟", "How early should we contact you?": "متى ينبغي التواصل معكم؟", "Do you manage the whole event or only parts of it?": "هل تديرون الفعالية كاملة أم أجزاء منها؟", "Can you handle VIPs and official delegations?": "هل تستقبلون كبار الشخصيات والوفود الرسمية؟", "Do you produce drone shows and fireworks?": "هل تنتجون عروض الدرون والألعاب النارية؟", "Where do you work?": "أين تعملون؟", "How is pricing decided?": "كيف يتم تحديد الأسعار؟", "Can you support Saudi Vision 2030 programmes?": "هل تدعمون برامج رؤية السعودية 2030؟",
   "Company updates": "أخبار الشركة", "Press releases & project stories": "بيانات صحفية وقصص مشاريع", "News from behind Saudi Arabia's biggest events": "أخبار من كواليس أكبر فعاليات السعودية", By: "بواسطة", "Back to Blog": "العودة إلى الأخبار", "More from Litigon": "المزيد من ليتغون",
-  "Conferences & summits": "المؤتمرات والقمم", "Exhibitions & stands": "المعارض والأجنحة", "Cultural seasons": "المواسم الثقافية", "Show production": "إنتاج العروض",
+  "Exhibitions & stands": "المعارض والأجنحة", "Cultural seasons": "المواسم الثقافية", "Show production": "إنتاج العروض",
   "Select language": "اختر اللغة", English: "English", Arabic: "العربية", French: "Français", Chinese: "中文", Close: "إغلاق"
 };
 
@@ -114,12 +114,13 @@ const translateTree = (root: ParentNode, dictionary: Dictionary) => {
   let current = walker.nextNode();
   while (current) {
     const parent = current.parentElement;
-    if (parent && !["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) {
+    if (parent && !parent.closest("[data-i18n-ignore]") && !["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) {
       translateTextNode(current as Text, dictionary);
     }
     current = walker.nextNode();
   }
   root.querySelectorAll?.("[placeholder], [aria-label], [title], [content], img[alt]").forEach((element) => {
+    if (element.closest("[data-i18n-ignore]")) return;
     const stored = attributeSources.get(element) ?? {};
     ["placeholder", "aria-label", "title", "alt", "content"].forEach((attribute) => {
       const value = element.getAttribute(attribute);
