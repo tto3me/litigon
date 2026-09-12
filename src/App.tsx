@@ -15,6 +15,7 @@ import Blog from "./pages/blog";
 import BlogDetails from "./pages/blog/[slug]";
 import Company from "./pages/company";
 import Contact from "./pages/contact";
+import Partners from "./pages/partners";
 import ProfileSettings from "./pages/dashboard/profile";
 import BlogDashboard from "./pages/dashboard/blog";
 import BlogEditor from "./pages/dashboard/blog/editor";
@@ -50,6 +51,7 @@ const App = () => (
               <Route path="/company" element={<Company />} />
               <Route path="/features" element={<Features />} />
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/partners" element={<Partners />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/pricing/starter" element={<StarterPlan />} />
               <Route path="/pricing/pro" element={<ProPlan />} />

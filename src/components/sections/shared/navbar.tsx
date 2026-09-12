@@ -27,6 +27,10 @@ const pages = [
     href: "/projects"
   },
   {
+    name: "Partners",
+    href: "/partners"
+  },
+  {
     name: "About",
     href: "/company"
   },
