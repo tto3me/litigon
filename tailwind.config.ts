@@ -54,10 +54,7 @@ export default {
    				dark: 'rgb(var(--card-dark))',
    				'dark-foreground': 'rgb(var(--card-dark-foreground))'
    			},
-   			border: {
-   				DEFAULT: 'rgb(var(--border))',
-   				dark: 'rgb(var(--border-dark))'
-   			},
+    		borderDark: 'rgb(var(--border-dark))',
   			revio: {
   				obsidian: 'rgb(var(--revio-obsidian))',
   				charcoal: 'rgb(var(--revio-charcoal))',
