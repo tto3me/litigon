@@ -1,8 +1,8 @@
 export const appConfig = {
-    name: "Revio",
-    description: "Revio is a payment processing platform that allows you to accept payments online and offline.",
-    url: "https://revio-template.lovable.dev",
-    logo: "/logo.svg",
+    name: "Litigon",
+    description: "Litigon is an events and conferences management company in Saudi Arabia, delivering strategy, creative, production and logistics for every event.",
+    url: "https://litigon.lovable.app",
+    logo: "/litigon-mark.png",
     favicon: "/favicon.ico",
-    ogImage: "/og-image.jpg",
+    ogImage: "/litigon-mark.png",
 }

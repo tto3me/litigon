@@ -20,6 +20,7 @@ import BlogDashboard from "./pages/dashboard/blog";
 import BlogEditor from "./pages/dashboard/blog/editor";
 import Features from "./pages/features";
 import Home from "./pages/home";
+import ProjectsPage from "./pages/projects";
 import CookiePolicyPage from "./pages/legal/cookie-policy";
 import PrivacyPolicyPage from "./pages/legal/privacy-&-policy";
 import TermsAndConditionPage from "./pages/legal/terms-&-condition";
@@ -48,6 +49,7 @@ const App = () => (
               <Route path="/" element={<Home />} />
               <Route path="/company" element={<Company />} />
               <Route path="/features" element={<Features />} />
+              <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/pricing/starter" element={<StarterPlan />} />
               <Route path="/pricing/pro" element={<ProPlan />} />
