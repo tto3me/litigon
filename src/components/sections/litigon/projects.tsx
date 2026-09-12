@@ -102,25 +102,25 @@ const Projects = ({ limit }: { limit?: number }) => {
   const list = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <section className="bg-black py-16 text-white md:py-24">
+    <section className={`bg-black text-white ${limit ? "py-16 md:py-24" : "pb-16 pt-2 md:pb-24"}`}>
       <Container>
-        <AnimateOnView once blur className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-[620px]">
-            <h2 className="h2 mb-5">Featured projects</h2>
-            <p className="paragraph-large text-muted">
-              Conferences, exhibitions, sports weekends and national celebrations delivered
-              across the Kingdom.
-            </p>
-          </div>
-          {limit ? (
+        {limit ? (
+          <AnimateOnView once blur className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-[620px]">
+              <h2 className="h2 mb-5">Featured projects</h2>
+              <p className="paragraph-large text-muted">
+                Conferences, exhibitions, sports weekends and national celebrations delivered
+                across the Kingdom.
+              </p>
+            </div>
             <Button asChild variant="gray">
               <Link to="/projects">
                 All projects
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-          ) : null}
-        </AnimateOnView>
+          </AnimateOnView>
+        ) : null}
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((project, index) => (
