@@ -102,7 +102,7 @@ const Projects = ({ limit }: { limit?: number }) => {
   const list = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <section className="bg-black py-16 text-white md:py-24">
+    <section className={`bg-black text-white ${limit ? "py-16 md:py-24" : "pb-16 pt-2 md:pb-24"}`}>
       <Container>
         {limit ? (
           <AnimateOnView once blur className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
