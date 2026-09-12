@@ -4,63 +4,195 @@ import SEO from "@/components/seo";
 import Approach from "@/components/sections/litigon/approach";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import aboutImage from "@/assets/litigon/about-conference-crowd.jpg";
+import lionMark from "@/assets/litigon/litigon-lion.png";
+import { Link } from "react-router-dom";
 
-const values = [
+const foundations = [
   {
-    title: "Vision",
-    text: "To be the leading events partner in the region, setting the standard for experiences that carry the Kingdom's ambition to the world.",
+    title: "Integrated Ecosystem",
+    text: "Our integrated operational and media ecosystem seamlessly connects strategy, creativity, production, logistics, and execution into one unified workflow — ensuring every event is delivered with precision, efficiency, and measurable impact.",
   },
   {
-    title: "Mission",
-    text: "To plan and deliver events that are precise in execution, generous in hospitality and memorable in every detail.",
+    title: "Innovation in Experience",
+    text: "We create innovative concepts and digital solutions that give every event its own distinctive identity, ensuring meaningful audience engagement and leaving a lasting impact.",
   },
   {
-    title: "Values",
-    text: "Accountability, creativity and respect for the guest — from the head of state to the first-time visitor.",
+    title: "Operational Excellence",
+    text: "We are committed to the highest international standards in crowd management, time control, and risk management, ensuring that every event and conference is delivered with exceptional precision, efficiency, and professionalism.",
   },
+  {
+    title: "Strategic Reliability",
+    text: "We stand as a trusted strategic partner, capable of delivering major national events and flagship projects while transforming our partners' ambitions into measurable success and lasting achievements.",
+  },
+];
+
+const numbers = [
+  { value: "+60", label: "Success partners" },
+  { value: "+1500", label: "Successful events delivered" },
+  { value: "+80k", label: "Operational & technical management hours" },
+  { value: "+100", label: "Artists & influencers managed" },
 ];
 
 const AboutPage = () => {
   const metaTitle = "About Litigon | Events & Conferences Management";
   const metaDescription =
-    "Litigon is a Saudi events and conferences management company delivering strategy, creative, production and logistics for national and corporate events.";
+    "Litigon was founded to redefine the events and experiences industry in Saudi Arabia through strategic thinking, creative excellence and flawless execution.";
 
   return (
     <>
       <SEO title={metaTitle} description={metaDescription} canonicalUrl="/company" />
       <Layout>
-        <section className="bg-black text-white">
-          <Container className="pt-[150px] md:pt-[190px] pb-16">
-            <AnimateOnView once blur className="max-w-[820px]">
-              <p className="mb-6 text-sm uppercase tracking-[0.2em] text-primary">About us</p>
-              <h1 className="h1 mb-6">We create exceptional impact</h1>
-              <p className="paragraph-large text-muted">
-                Litigon is an events and conferences management company based in Saudi Arabia.
-                We bring strategy, creative direction, technical production and logistics
-                together in one integrated ecosystem, supporting the goals of Saudi Vision 2030.
+        {/* Hero */}
+        <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
+          <img
+            src={lionMark}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute -right-10 top-24 hidden w-[420px] opacity-[0.06] lg:block"
+          />
+          <Container className="relative pb-20 pt-[150px] md:pb-28 md:pt-[190px]">
+            <AnimateOnView once blur className="max-w-[900px]">
+              <p className="mb-6 text-sm uppercase tracking-[0.25em] text-primary">About us</p>
+              <h1 className="font-display text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[1.05] tracking-tight">
+                We create exceptional impact
+              </h1>
+              <div className="mt-8 h-px w-24 bg-primary" />
+              <p className="paragraph-large mt-8 text-white/70">
+                Litigon was founded to redefine the events and experiences industry through
+                integrated solutions that combine strategic thinking, creative excellence, and
+                flawless execution. We transform ambitious visions into world-class experiences
+                that inspire audiences, elevate brands, and reinforce Saudi Arabia's position as a
+                global destination for events, business tourism, and entertainment.
               </p>
             </AnimateOnView>
           </Container>
         </section>
 
+        {/* Vision & mission */}
         <section className="bg-background py-16 md:py-24">
-          <Container className="grid items-center gap-12 lg:grid-cols-2">
-            <AnimateOnView once blur>
-              <img
-                src={aboutImage}
-                alt="Audience at a Litigon-managed conference"
-                loading="lazy"
-                className="h-full w-full rounded-3xl object-cover"
-              />
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center">
+              <AnimateOnView once blur>
+                <img
+                  src={aboutImage}
+                  alt="Audience at a Litigon-managed conference in Saudi Arabia"
+                  loading="lazy"
+                  className="aspect-[4/3] w-full rounded-sm object-cover"
+                />
+              </AnimateOnView>
+
+              <div className="space-y-10">
+                <AnimateOnView once>
+                  <p className="mb-3 text-xs uppercase tracking-[0.25em] text-primary">Vision</p>
+                  <h2 className="font-display text-3xl font-medium leading-snug md:text-4xl">
+                    Shaping the future of the events industry in Saudi Arabia
+                  </h2>
+                  <p className="mt-4 text-muted-foreground">
+                    To shape the future of the events and experiences industry in Saudi Arabia
+                    through innovation, operational excellence, and transformative experiences that
+                    set new international benchmarks.
+                  </p>
+                </AnimateOnView>
+
+                <div className="h-px w-full bg-border" />
+
+                <AnimateOnView once delay={0.08}>
+                  <p className="mb-3 text-xs uppercase tracking-[0.25em] text-primary">Mission</p>
+                  <h2 className="font-display text-3xl font-medium leading-snug md:text-4xl">
+                    Turning bold ideas into unforgettable experiences
+                  </h2>
+                  <p className="mt-4 text-muted-foreground">
+                    To transform bold ideas into unforgettable experiences through an integrated
+                    ecosystem of expertise, innovation, and strategic partnerships — creating
+                    measurable value for our clients while contributing to the ambitions of Saudi
+                    Vision 2030.
+                  </p>
+                </AnimateOnView>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Foundations */}
+        <section className="bg-[#222222] py-16 text-white md:py-24">
+          <Container>
+            <AnimateOnView once blur className="mb-14 max-w-[720px]">
+              <p className="mb-5 text-xs uppercase tracking-[0.25em] text-primary">
+                Our foundations
+              </p>
+              <h2 className="font-display text-4xl font-medium leading-tight md:text-5xl">
+                Four principles behind every Litigon delivery
+              </h2>
             </AnimateOnView>
-            <div className="space-y-8">
-              {values.map((value, index) => (
-                <AnimateOnView key={value.title} once delay={index * 0.08}>
-                  <h2 className="h4 mb-3">{value.title}</h2>
-                  <p className="text-muted-foreground">{value.text}</p>
+
+            <div className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 sm:grid-cols-2">
+              {foundations.map((item, index) => (
+                <AnimateOnView key={item.title} once delay={index * 0.07} className="h-full">
+                  <div className="group h-full bg-[#2a2a2a] p-8 transition-colors duration-300 hover:bg-[#2f2f2f] md:p-10">
+                    <span className="font-display text-2xl text-primary">
+                      0{index + 1}
+                    </span>
+                    <h3 className="mt-5 font-display text-2xl font-medium">{item.title}</h3>
+                    <div className="mt-4 h-px w-10 bg-primary transition-all duration-300 group-hover:w-20" />
+                    <p className="mt-5 text-sm leading-relaxed text-white/65">{item.text}</p>
+                  </div>
                 </AnimateOnView>
               ))}
             </div>
+          </Container>
+        </section>
+
+        {/* Numbers */}
+        <section className="bg-background py-16 md:py-24">
+          <Container>
+            <AnimateOnView once blur className="mb-12 max-w-[640px]">
+              <p className="mb-4 text-xs uppercase tracking-[0.25em] text-primary">
+                Litigon in numbers
+              </p>
+              <h2 className="font-display text-4xl font-medium leading-tight md:text-5xl">
+                Scale, measured in delivery
+              </h2>
+            </AnimateOnView>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {numbers.map((stat, index) => (
+                <AnimateOnView key={stat.label} once delay={index * 0.06}>
+                  <div className="border-t border-border pt-6">
+                    <p className="font-display text-5xl font-medium text-primary md:text-6xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-3 text-sm text-muted-foreground">{stat.label}</p>
+                  </div>
+                </AnimateOnView>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Scope of services teaser */}
+        <section className="bg-[#1a1a1a] py-16 text-white md:py-24">
+          <Container className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <AnimateOnView once blur className="max-w-[760px]">
+              <p className="mb-5 text-xs uppercase tracking-[0.25em] text-primary">
+                Scope of services
+              </p>
+              <h2 className="font-display text-4xl font-medium leading-tight md:text-5xl">
+                Planning, development, execution and operations
+              </h2>
+              <p className="paragraph-large mt-6 text-white/70">
+                We deliver integrated solutions in event management and live experiences, covering
+                planning, development, execution, and operations through a comprehensive portfolio
+                of specialized services.
+              </p>
+            </AnimateOnView>
+            <AnimateOnView once delay={0.1}>
+              <Link
+                to="/features"
+                className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-sm font-medium text-white transition-opacity hover:opacity-90"
+              >
+                Explore our services
+              </Link>
+            </AnimateOnView>
           </Container>
         </section>
 
