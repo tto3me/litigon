@@ -160,7 +160,7 @@ const ScrollLion = () => {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[60]"
+      className="pointer-events-none fixed left-0 top-0 z-40"
       style={{ x, y, scale, opacity, width: BASE, height: BASE }}
     >
       <img src={litigonLion} alt="" className="h-full w-full object-contain" />
