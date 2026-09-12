@@ -2,9 +2,9 @@ import Container from "@/components/container";
 import Layout from "@/components/layout";
 import SEO from "@/components/seo";
 import Approach from "@/components/sections/litigon/approach";
+import LionWatermark from "@/components/sections/shared/lion-watermark";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import aboutImage from "@/assets/litigon/about-conference-crowd.jpg";
-import lionMark from "@/assets/litigon/litigon-lion.png";
 import { Link } from "react-router-dom";
 
 const foundations = [
@@ -44,12 +44,7 @@ const AboutPage = () => {
       <Layout>
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
-          <img
-            src={lionMark}
-            alt=""
-            aria-hidden
-            className="pointer-events-none absolute -right-10 top-24 hidden w-[420px] opacity-[0.06] lg:block"
-          />
+          <LionWatermark />
           <Container className="relative pb-20 pt-[150px] md:pb-28 md:pt-[190px]">
             <AnimateOnView once blur className="max-w-[900px]">
               <p className="mb-6 text-sm uppercase tracking-[0.25em] text-primary">About us</p>
