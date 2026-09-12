@@ -2,6 +2,7 @@ import Container from "@/components/container";
 import Layout from "@/components/layout";
 import SEO from "@/components/seo";
 import Projects from "@/components/sections/litigon/projects";
+import LionWatermark from "@/components/sections/shared/lion-watermark";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 
 const ProjectsPage = () => {
@@ -13,8 +14,9 @@ const ProjectsPage = () => {
     <>
       <SEO title={metaTitle} description={metaDescription} canonicalUrl="/projects" />
       <Layout>
-        <section className="bg-black text-white">
-          <Container className="pt-[150px] md:pt-[190px] pb-10">
+        <section className="relative overflow-hidden bg-black text-white">
+          <LionWatermark />
+          <Container className="relative pt-[150px] md:pt-[190px] pb-10">
             <AnimateOnView once blur className="max-w-[820px]">
               <p className="mb-6 text-sm uppercase tracking-[0.2em] text-primary">Our work</p>
               <h1 className="h1 mb-6">Projects delivered across the Kingdom</h1>

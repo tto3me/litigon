@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import BlogBreadcrumbs from "@/components/sections/blog/blog-breadcrumbs";
+import LionWatermark from "@/components/sections/shared/lion-watermark";
 import { BlogPost } from "@/lib/services/blog-service";
 
 interface BlogDetailsHeroProps {
@@ -16,8 +17,9 @@ const BlogDetailsHero = ({ post }: BlogDetailsHeroProps) => {
   }
 
   return (
-    <section className="relative bg-black text-white banner-top-padding md:pb-24 pb-12">
-      <Container className="flex-1 flex flex-col justify-center">
+    <section className="relative overflow-hidden bg-black text-white banner-top-padding md:pb-24 pb-12">
+      <LionWatermark />
+      <Container className="relative flex-1 flex flex-col justify-center">
         <BlogBreadcrumbs
           className="mb-8 max-w-[1024px]"
           items={[

@@ -3,10 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import BlogBreadcrumbs from "@/components/sections/blog/blog-breadcrumbs";
+import LionWatermark from "@/components/sections/shared/lion-watermark";
 
 const BlogHero = () => {
   return (
     <section className="relative bg-foreground overflow-hidden banner-top-padding pb-[200px] lg:pb-[301px]">
+      <LionWatermark />
       <Container className="relative z-10">
         <BlogBreadcrumbs
           className="mb-8 flex justify-center"
