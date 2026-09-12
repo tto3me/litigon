@@ -18,6 +18,10 @@ const pagesLinks = [
     href: "/projects",
   },
   {
+    title: "Partners",
+    href: "/partners",
+  },
+  {
     title: "About",
     href: "/company",
   },
