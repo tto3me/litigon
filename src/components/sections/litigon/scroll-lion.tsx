@@ -119,7 +119,12 @@ const ScrollLion = () => {
       const size = lerp(from.size, to.size, t);
 
       x.set(docX - scrollY - BASE / 2);
-      y.set(docY - scrollY - BASE / 2);
+
+      // Keep the lion from ever visually rising above the navbar.
+      const topEdgeY = docY - scrollY - BASE / 2;
+      const minTopEdgeY = logoRect.bottom + 8;
+      y.set(Math.max(topEdgeY, minTopEdgeY));
+
       scale.set(size / BASE);
 
       // Invisible at rest; fades in as soon as the journey starts.
