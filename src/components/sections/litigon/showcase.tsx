@@ -94,23 +94,35 @@ const Showcase = () => {
                   src={item.image}
                   alt={item.title}
                   loading="lazy"
-                  className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] ${
-                    expandedItem === item.title ? "md:w-[58%]" : ""
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div
+                  className={`absolute inset-0 transition-colors duration-500 ${
+                    expandedItem === item.title
+                      ? "bg-black/60"
+                      : "bg-gradient-to-t from-black/90 via-black/30 to-transparent"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                {expandedItem === item.title && (
-                  <div className="absolute inset-0 hidden bg-gradient-to-l from-black via-black/95 to-black/10 md:block" />
-                )}
                 <div
-                  className={`absolute inset-x-0 bottom-0 p-6 text-white transition-all duration-500 md:p-8 ${
+                  className={`absolute inset-x-0 bottom-0 p-6 text-white transition-all duration-500 md:p-10 ${
                     expandedItem === item.title
-                      ? "top-auto bg-gradient-to-t from-black via-black/90 to-transparent md:inset-y-0 md:left-[54%] md:right-0 md:flex md:flex-col md:justify-center md:bg-none md:px-12"
+                      ? "inset-y-0 flex flex-col justify-center"
                       : ""
                   }`}
                 >
+                  <div
+                    className={
+                      expandedItem === item.title ? "w-full max-w-xl" : "w-full"
+                    }
+                  >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="h6">{item.title}</h3>
+                    <h3
+                      className={
+                        expandedItem === item.title ? "h4" : "h6"
+                      }
+                    >
+                      {item.title}
+                    </h3>
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30" aria-hidden="true">
                       {expandedItem === item.title ? <Minus /> : <Plus />}
                     </span>
@@ -128,6 +140,7 @@ const Showcase = () => {
                     <p className="overflow-hidden text-base leading-7 text-white/85 md:text-lg">
                       {item.profileText}
                     </p>
+                  </div>
                   </div>
                 </div>
               </Button>
