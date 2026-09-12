@@ -1,8 +1,5 @@
 import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import litigonLion from "@/assets/litigon/litigon-lion.png";
 import {
   CalendarCheck,
   Cpu,
