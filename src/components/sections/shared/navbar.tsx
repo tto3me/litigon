@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import Container from "../../container";
 import litigonLogo from "@/assets/litigon/litigon-logo.png";
+import LanguageSwitcher from "./language-switcher";
 
 const pages = [
   {
@@ -112,6 +113,7 @@ const Navbar = () => {
 
         {/* <!-- Mobile --> */}
         <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher compact />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -210,7 +212,7 @@ const Navbar = () => {
             {pages.map((page) => (
               <NavigationMenuItem key={page.href}>
                 <NavigationMenuLink asChild>
-                  <Link to={page.href} className="px-4 py-2 text-white hover:text-primary transition-colors">
+                  <Link to={page.href} className="px-3 py-2 text-white hover:text-primary transition-colors">
                     {page.name}
                   </Link>
                 </NavigationMenuLink>
@@ -220,6 +222,7 @@ const Navbar = () => {
         </NavigationMenu>
 
         <div className="hidden lg:flex gap-2 items-center xl:w-[35%] md:w-[30%] w-fit justify-end">
+          <LanguageSwitcher />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
