@@ -15,6 +15,7 @@ import Blog from "./pages/blog";
 import BlogDetails from "./pages/blog/[slug]";
 import Company from "./pages/company";
 import Contact from "./pages/contact";
+import Partners from "./pages/partners";
 import ProfileSettings from "./pages/dashboard/profile";
 import BlogDashboard from "./pages/dashboard/blog";
 import BlogEditor from "./pages/dashboard/blog/editor";
