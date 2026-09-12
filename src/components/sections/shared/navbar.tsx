@@ -99,7 +99,7 @@ const Navbar = () => {
       )}>
       <Container className="flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 xl:w-[35%] md:w-[30%] w-fit">
-          <img src={litigonLogo} alt="Litigon" className="h-[26px] w-auto" />
+          <img id="litigon-navbar-logo" src={litigonLogo} alt="Litigon" className="h-[26px] w-auto" />
         </Link>
 
         {/* <!-- Mobile --> */}

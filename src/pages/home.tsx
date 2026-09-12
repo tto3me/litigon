@@ -2,6 +2,7 @@ import Layout from "@/components/layout";
 import SEO from "@/components/seo";
 import Hero from "@/components/sections/litigon/hero";
 import Services from "@/components/sections/litigon/services";
+import ScrollLion from "@/components/sections/litigon/scroll-lion";
 import { lazy, Suspense, useRef } from "react";
 
 const Projects = lazy(() => import("@/components/sections/litigon/projects"));
@@ -34,7 +35,8 @@ const Home = () => {
       <SEO title={metaTitle} description={metaDescription} canonicalUrl="/" jsonLd={jsonLd} />
       <Layout>
         <Hero heroRef={heroRef} />
-        <Services heroRef={heroRef} />
+        <ScrollLion heroRef={heroRef} />
+        <Services />
         <Suspense fallback={null}>
           <Showcase />
         </Suspense>
