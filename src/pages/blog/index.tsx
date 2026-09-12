@@ -17,8 +17,8 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title={`Blog | ${appConfig.name}`}
-        description={`${appConfig.description}`}
+        title="Newsroom | Litigon Events & Conferences"
+        description="Company updates, press releases and project stories from Litigon's events, exhibitions and shows across Saudi Arabia."
         canonicalUrl="/blog"
         ogType="website"
         jsonLd={jsonLd}
