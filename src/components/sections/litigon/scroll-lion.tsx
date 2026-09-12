@@ -1,4 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import litigonLion from "@/assets/litigon/litigon-lion.png";
 
@@ -10,13 +11,29 @@ const LION_HEIGHT_FRAC = 0.7616;
 
 // Base render size of the flying lion before scaling.
 const BASE = 96;
-const START_SCALE = 3;
 
-const ScrollLion = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null> }) => {
+// Fraction of the journey (by scroll) spent travelling from the
+// navbar logo to the hero word "Impact"; the rest goes to the
+// "An integrated ecosystem" heading.
+const MID_PROGRESS = 0.45;
+
+// Viewport height fraction where the ecosystem heading rests when docked.
+const DOCK_VIEWPORT_Y = 0.5;
+
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+const ease = (t: number) => t * t * (3 - 2 * t);
+
+type Point = { x: number; y: number; size: number };
+
+const ScrollLion = () => {
   const [isDesktop, setIsDesktop] = useState(false);
-  const [from, setFrom] = useState({ x: 0, y: 0 });
-  const [to, setTo] = useState({ x: 0, y: 0 });
-  const [endScale, setEndScale] = useState(0.2);
+  const [ready, setReady] = useState(false);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const scale = useMotionValue(0);
+  const opacity = useMotionValue(0);
 
   useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
@@ -25,60 +42,110 @@ const ScrollLion = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null>
     return () => window.removeEventListener("resize", checkDesktop);
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
   useEffect(() => {
     if (!isDesktop) return;
 
-    const measure = () => {
+    let raf = 0;
+
+    const update = () => {
       const logo = document.getElementById("litigon-navbar-logo");
-      const hero = heroRef?.current;
-      if (!logo || !hero) return;
+      const impact = document.getElementById("litigon-word-impact");
+      const ecosystem = document.getElementById("litigon-ecosystem-heading");
+      if (!logo || !impact || !ecosystem) return;
+
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
 
       const logoRect = logo.getBoundingClientRect();
+      const impactRect = impact.getBoundingClientRect();
+      const ecoRect = ecosystem.getBoundingClientRect();
 
-      // The start point is the hero at rest — only valid near the top,
-      // otherwise the hero has already scrolled away.
-      if (window.scrollY < 50) {
-        const heroRect = hero.getBoundingClientRect();
-        setFrom({
-          x: heroRect.left + heroRect.width / 2 - BASE / 2,
-          y: heroRect.top + heroRect.height / 2 + 60 - BASE / 2,
-        });
+      // Stop 0 — the lion inside the navbar wordmark (navbar is fixed,
+      // so in document space it rides along with the scroll).
+      const logoSize = LION_HEIGHT_FRAC * logoRect.height;
+      const p0: Point = {
+        x: logoRect.left + LION_CENTER_X * logoRect.width + scrollY,
+        y: logoRect.top + LION_CENTER_Y * logoRect.height + scrollY,
+        size: logoSize,
+      };
+
+      // Stop 1 — just right of the word "Impact" in the hero headline.
+      const p1: Point = {
+        x: impactRect.right + 16 + scrollY,
+        y: impactRect.top + impactRect.height / 2 + scrollY,
+        size: impactRect.height * 0.95,
+      };
+
+      // Stop 2 — just left of the "An integrated ecosystem" heading.
+      const ecoSize = ecoRect.height * 1.25;
+      const p2: Point = {
+        x: ecoRect.left - 24 - ecoSize + scrollY,
+        y: ecoRect.top + ecoRect.height / 2 + scrollY,
+        size: ecoSize,
+      };
+
+      // Scroll position where the heading rests mid-viewport = journey end.
+      const ecoDocTop = ecoRect.top + scrollY;
+      const end = Math.max(1, ecoDocTop - vh * DOCK_VIEWPORT_Y);
+      const progress = clamp01(scrollY / end);
+
+      let from: Point;
+      let to: Point;
+      let t: number;
+      if (progress < MID_PROGRESS) {
+        from = p0;
+        to = p1;
+        t = ease(progress / MID_PROGRESS);
+      } else {
+        from = p1;
+        to = p2;
+        t = ease((progress - MID_PROGRESS) / (1 - MID_PROGRESS));
       }
 
-      // The navbar shrinks on scroll, so track the logo continuously.
-      setTo({
-        x: logoRect.left + LION_CENTER_X * logoRect.width - BASE / 2,
-        y: logoRect.top + LION_CENTER_Y * logoRect.height - BASE / 2,
-      });
-      setEndScale((LION_HEIGHT_FRAC * logoRect.height) / BASE);
+      // Work in document space, then bring back to viewport space.
+      const docX = lerp(from.x, to.x, t);
+      const docY = lerp(from.y, to.y, t);
+      const size = lerp(from.size, to.size, t);
+
+      x.set(docX - scrollY - BASE / 2);
+      y.set(docY - scrollY - BASE / 2);
+      scale.set(size / BASE);
+
+      // Invisible at rest; fades in as soon as the journey starts.
+      opacity.set(clamp01(scrollY / 60));
     };
 
-    const timeoutId = setTimeout(measure, 150);
-    window.addEventListener("resize", measure);
-    window.addEventListener("scroll", measure, { passive: true });
+    const schedule = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+
+    schedule();
+    const timeoutId = setTimeout(() => {
+      schedule();
+      setReady(true);
+    }, 200);
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(schedule).catch(() => undefined);
+    }
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
     return () => {
+      cancelAnimationFrame(raf);
       clearTimeout(timeoutId);
-      window.removeEventListener("resize", measure);
-      window.removeEventListener("scroll", measure);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
-  }, [heroRef, isDesktop]);
+  }, [isDesktop, x, y, scale, opacity]);
 
-  const x = useTransform(scrollYProgress, [0, 1], [from.x, to.x]);
-  const y = useTransform(scrollYProgress, [0, 1], [from.y, to.y]);
-  const scale = useTransform(scrollYProgress, [0, 1], [START_SCALE, endScale]);
-
-  if (!isDesktop) return null;
+  if (!isDesktop || !ready) return null;
 
   return (
     <motion.div
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[60]"
-      style={{ x, y, scale, width: BASE, height: BASE }}
+      style={{ x, y, scale, opacity, width: BASE, height: BASE }}
     >
       <img src={litigonLion} alt="" className="h-full w-full object-contain" />
     </motion.div>

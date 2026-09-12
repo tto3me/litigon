@@ -24,7 +24,10 @@ const Hero = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null> }) =>
             Events &amp; Conferences Management
           </p>
           <h1 className="h1 mb-6">
-            We Create <span className="text-primary">Exceptional Impact</span>
+            We Create{" "}
+            <span className="text-primary">
+              Exceptional <span id="litigon-word-impact">Impact</span>
+            </span>
           </h1>
           <p className="paragraph-large max-w-[640px] text-muted">
             Litigon designs, produces and manages conferences, exhibitions and national

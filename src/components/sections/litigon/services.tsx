@@ -74,7 +74,7 @@ const Services = ({ heading = "An integrated ecosystem", intro }: { heading?: st
     <section className="bg-background py-16 md:py-24">
       <Container>
         <AnimateOnView once blur className="mb-12 max-w-[720px]">
-          <h2 className="h2 mb-5">{heading}</h2>
+          <h2 id="litigon-ecosystem-heading" className="h2 mb-5">{heading}</h2>
           <p className="paragraph-large text-muted-foreground">
             {intro ??
               "Strategy, creativity, production and logistics under one roof — so nothing falls between suppliers."}
