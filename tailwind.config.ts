@@ -11,13 +11,18 @@ export default {
   		center: true
   	},
   	extend: {
-  		fontFamily: {
-  			sans: [
-  				'Inter Tight',
-  				'system-ui',
-  				'sans-serif'
-  			]
-  		},
+    		fontFamily: {
+    			sans: [
+    				'Inter Tight',
+    				'system-ui',
+    				'sans-serif'
+    			],
+    			display: [
+    				'Playfair Display',
+    				'Georgia',
+    				'serif'
+    			]
+    		},
   		colors: {
   			border: 'rgb(var(--border))',
   			input: 'rgb(var(--input))',
@@ -48,10 +53,13 @@ export default {
   				DEFAULT: 'rgb(var(--popover))',
   				foreground: 'rgb(var(--popover-foreground))'
   			},
-  			card: {
-  				DEFAULT: 'rgb(var(--card))',
-  				foreground: 'rgb(var(--card-foreground))'
-  			},
+    		card: {
+   				DEFAULT: 'rgb(var(--card))',
+   				foreground: 'rgb(var(--card-foreground))',
+   				dark: 'rgb(var(--card-dark))',
+   				'dark-foreground': 'rgb(var(--card-dark-foreground))'
+   			},
+    		borderDark: 'rgb(var(--border-dark))',
   			revio: {
   				obsidian: 'rgb(var(--revio-obsidian))',
   				charcoal: 'rgb(var(--revio-charcoal))',
