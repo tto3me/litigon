@@ -101,13 +101,15 @@ const ContactForm = () => {
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         {/* Header Section */}
         <div className="text-center max-w-[612px] mx-auto">
-          <h1 className="h2 mb-4">
-            Connect with our support team
-          </h1>
-          <p className="">
-            At Revio, we value clear communication and prompt support. Whether
-            you have questions about our platform, need assistance with your
-            integration.
+          <span className="paragraph-small uppercase tracking-[0.2em] text-primary">
+            Contact us
+          </span>
+          <h2 className="h2 mb-4 mt-4">
+            Tell us about your event
+          </h2>
+          <p className="text-muted-foreground">
+            Share the date, the audience and the ambition — our team will get
+            back to you within one business day.
           </p>
         </div>
 

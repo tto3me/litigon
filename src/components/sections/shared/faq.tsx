@@ -1,6 +1,6 @@
 import Container from "@/components/container";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
+
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { ArrowRight } from "lucide-react";
@@ -44,29 +44,38 @@ const faqs = [
 const FAQ = () => {
 
   return (
-    <section className="md:pt-20 xl:pt-32 pt-12 md:pb-20 xl:pb-32 pb-12">
+    <section className="bg-black text-white md:pt-20 xl:pt-32 pt-12 md:pb-20 xl:pb-32 pb-12">
       <Container>
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="max-w-[507px] md:sticky static top-24 self-start">
             <AnimateOnView once blur>
-              <Badge className="md:mb-4 mb-1.5">FAQs</Badge>
-              <h2 className="h2 md:mb-6 mb-3">Frequently asked questions</h2>
-              <Button asChild>
+              <span className="paragraph-small uppercase tracking-[0.2em] text-primary">
+                FAQs
+              </span>
+              <h2 className="h2 md:mb-6 mb-3 mt-4 text-white">Frequently asked questions</h2>
+              <p className="paragraph mb-8 text-muted">
+                Everything you need to know before we start planning together.
+              </p>
+              <Button asChild className="rounded-full">
                 <Link to="/contact">
                   Talk to our team <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
             </AnimateOnView>
           </div>
-          <div className="md:max-w-[612px]">
+          <div className="md:max-w-[612px] w-full">
             <AnimateOnView once y={40}>
               <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-4">
                 {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-xl p-5">
-                    <AccordionTrigger className="text-left py-0">
+                  <AccordionItem
+                    key={index}
+                    value={`item-${index}`}
+                    className="rounded-2xl border border-white/10 bg-white/5 px-6 py-5 transition-colors data-[state=open]:border-primary/50 hover:border-white/20"
+                  >
+                    <AccordionTrigger className="text-left py-0 text-white hover:no-underline [&[data-state=open]>svg]:text-primary">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="pb-0 data-[state=closed]:pt-0 pt-4">
+                    <AccordionContent className="pb-0 data-[state=closed]:pt-0 pt-4 text-muted">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
