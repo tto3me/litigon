@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import litigonLion from "@/assets/litigon/litigon-lion.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
@@ -37,7 +38,11 @@ const BlogDetailsHero = ({ post }: BlogDetailsHeroProps) => {
           <AnimateOnView once blur delay={0.2}>
             <div className="flex items-center gap-4">
               <Avatar className="h-14 w-14 border-2 border-white/20 bg-muted">
-                <AvatarImage src={post.author_image || undefined} alt={post.author} />
+                <AvatarImage
+                  src={post.author_image || litigonLion}
+                  alt={post.author}
+                  className="object-contain p-1.5"
+                />
                 <AvatarFallback className="bg-muted text-white text-lg">
                   {post.author
                     .split(" ")
