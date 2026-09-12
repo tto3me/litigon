@@ -1,5 +1,4 @@
 import Container from "@/components/container";
-import NewsletterForm from "@/components/newsletter-form";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { Link } from "react-router-dom";
 import litigonLogo from "@/assets/litigon/litigon-logo.png";
@@ -126,22 +125,6 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Newsletter */}
-              <div>
-                <h3 className="text-lg font-semibold mb-2">
-                  Stay updated with Litigon
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  News from our events and cultural seasons.
-                </p>
-                <NewsletterForm
-                  buttonVariant="secondary"
-                  buttonClassName="bg-white text-black hover:bg-white/90 px-4 h-10"
-                  inputClassName="bg-foreground"
-                  formClassName="flex"
-                  gap="gap-1"
-                />
-              </div>
             </AnimateOnView>
 
           </div>
