@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage1 from "@/assets/litigon/about-conference-crowd.jpg";
-import heroImage2 from "@/assets/litigon/tech-drone-show.jpg";
-import heroImage3 from "@/assets/litigon/tech-fireworks.jpg";
+import heroImage1 from "@/assets/litigon/hero-conference.jpg";
+import heroImage2 from "@/assets/litigon/hero-drones.jpg";
+import heroImage3 from "@/assets/litigon/hero-fireworks.jpg";
 
 const slides = [
   { src: heroImage1, alt: "Litigon conference stage with a full audience in Saudi Arabia" },
-  { src: heroImage2, alt: "Litigon drone light show over the night sky" },
+  { src: heroImage2, alt: "Litigon drone light show over the Riyadh skyline" },
   { src: heroImage3, alt: "Litigon fireworks display at a national celebration" },
 ];
 
@@ -34,14 +34,16 @@ const Hero = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null> }) =>
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
+            width={1920}
+            height={1080}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              i === active ? "opacity-70" : "opacity-0"
+              i === active ? "opacity-85" : "opacity-0"
             }`}
             fetchPriority={i === 0 ? "high" : undefined}
             aria-hidden={i !== active}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/75" />
       </div>
 
       <Container className="relative z-10 pt-[150px] md:pt-[190px] pb-16 md:pb-24">
