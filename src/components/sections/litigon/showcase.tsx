@@ -69,83 +69,70 @@ const Showcase = () => {
           </p>
         </AnimateOnView>
 
-        <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, index) => (
-            <AnimateOnView
-              key={item.title}
-              once
-              delay={index * 0.05}
-              className={`h-full transition-[grid-column] duration-500 ${
-                expandedItem === item.title ? "sm:col-span-2 lg:col-span-3" : ""
-              }`}
-            >
-              <Button
-                type="button"
-                variant="outline"
-                aria-expanded={expandedItem === item.title}
-                onClick={() =>
-                  setExpandedItem((current) => (current === item.title ? null : item.title))
-                }
-                className={`group relative block h-[320px] w-full overflow-hidden whitespace-normal rounded-3xl border-0 p-0 text-left transition-[height] duration-500 hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                  expandedItem === item.title ? "h-[460px] md:h-[420px]" : ""
-                }`}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item, index) => {
+            const isExpanded = expandedItem === item.title;
+            return (
+              <AnimateOnView
+                key={item.title}
+                once
+                delay={index * 0.05}
+                className="h-full"
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div
-                  className={`absolute inset-0 transition-colors duration-500 ${
-                    expandedItem === item.title
-                      ? "bg-black/60"
-                      : "bg-gradient-to-t from-black/90 via-black/30 to-transparent"
-                  }`}
-                />
-                <div
-                  className={`absolute inset-x-0 bottom-0 p-6 text-white transition-all duration-500 md:p-10 ${
-                    expandedItem === item.title
-                      ? "inset-y-0 flex flex-col justify-center"
-                      : ""
+                <Button
+                  type="button"
+                  variant="outline"
+                  aria-expanded={isExpanded}
+                  onClick={() =>
+                    setExpandedItem((current) =>
+                      current === item.title ? null : item.title
+                    )
+                  }
+                  className={`group flex h-full w-full flex-col overflow-hidden whitespace-normal rounded-3xl border-0 bg-card p-0 text-left transition-all duration-500 hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                    isExpanded ? "ring-1 ring-primary/30" : ""
                   }`}
                 >
-                  <div
-                    className={
-                      expandedItem === item.title ? "w-full max-w-xl" : "w-full"
-                    }
-                  >
-                  <div className="flex items-center justify-between gap-4">
-                    <h3
-                      className={
-                        expandedItem === item.title ? "h4" : "h6"
-                      }
+                  <div className="relative h-[200px] w-full shrink-0 overflow-hidden md:h-[220px]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5 text-white md:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="h6">{item.title}</h3>
+                      <span
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30 transition-colors group-hover:bg-white/10"
+                        aria-hidden="true"
+                      >
+                        {isExpanded ? <Minus size={18} /> : <Plus size={18} />}
+                      </span>
+                    </div>
+
+                    <p className="mt-2 text-sm text-white/80">{item.text}</p>
+
+                    <div
+                      className={`grid transition-[grid-template-rows,opacity] duration-500 ${
+                        isExpanded
+                          ? "mt-4 grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
                     >
-                      {item.title}
-                    </h3>
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30" aria-hidden="true">
-                      {expandedItem === item.title ? <Minus /> : <Plus />}
-                    </span>
+                      <div className="overflow-hidden border-t border-white/10 pt-4">
+                        <p className="text-sm leading-7 text-white/85 md:text-base">
+                          {item.profileText}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <p className={`mt-2 text-sm text-white/80 ${expandedItem === item.title ? "hidden" : ""}`}>
-                    {item.text}
-                  </p>
-                  <div
-                    className={`grid transition-[grid-template-rows,opacity] duration-500 ${
-                      expandedItem === item.title
-                        ? "mt-5 grid-rows-[1fr] opacity-100"
-                        : "grid-rows-[0fr] opacity-0"
-                    }`}
-                  >
-                    <p className="overflow-hidden text-base leading-7 text-white/85 md:text-lg">
-                      {item.profileText}
-                    </p>
-                  </div>
-                  </div>
-                </div>
-              </Button>
-            </AnimateOnView>
-          ))}
+                </Button>
+              </AnimateOnView>
+            );
+          })}
         </div>
       </Container>
     </section>
