@@ -79,15 +79,17 @@ const Services = ({
   dockedLion?: boolean;
 }) => {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-revio-obsidian py-16 md:py-24">
       <Container>
         <AnimateOnView
           once
           blur
           className={`mb-12 max-w-[720px] ${dockedLion ? "lg:pl-[72px] lg:max-w-[792px]" : ""}`}
         >
-          <h2 id="litigon-ecosystem-heading" className="h2 mb-5">{heading}</h2>
-          <p className="paragraph-large text-muted-foreground">
+          <h2 id="litigon-ecosystem-heading" className="h2 mb-5 text-revio-light">
+            {heading}
+          </h2>
+          <p className="paragraph-large text-revio-light/70">
             {intro ??
               "Strategy, creativity, production and logistics under one roof — so nothing falls between suppliers."}
           </p>
@@ -101,12 +103,21 @@ const Services = ({
               delay={index * 0.05}
               className="h-full"
             >
-              <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-8">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <service.icon className="h-6 w-6" />
-                </span>
-                <h3 className="h6">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+              <div className="group relative flex h-full flex-col rounded-xs border border-borderDark bg-card-dark p-8 transition-all duration-500 hover:border-primary/50">
+                <div className="mb-8">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/5 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <service.icon className="h-6 w-6" />
+                  </span>
+                </div>
+                <h3 className="font-display text-[22px] font-semibold leading-[1.3] tracking-tight text-card-dark-foreground md:text-[24px]">
+                  {service.title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-card-dark-foreground/60">
+                  {service.description}
+                </p>
+                <div className="mt-auto pt-6">
+                  <div className="h-[1px] w-0 bg-primary transition-all duration-700 group-hover:w-full" />
+                </div>
               </div>
             </AnimateOnView>
           ))}
