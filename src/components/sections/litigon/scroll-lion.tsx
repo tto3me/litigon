@@ -39,12 +39,18 @@ const ScrollLion = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null>
       if (!logo || !hero) return;
 
       const logoRect = logo.getBoundingClientRect();
-      const heroRect = hero.getBoundingClientRect();
 
-      setFrom({
-        x: heroRect.left + heroRect.width / 2 - BASE / 2,
-        y: heroRect.top + heroRect.height / 2 + 60 - BASE / 2,
-      });
+      // The start point is the hero at rest — only valid near the top,
+      // otherwise the hero has already scrolled away.
+      if (window.scrollY < 50) {
+        const heroRect = hero.getBoundingClientRect();
+        setFrom({
+          x: heroRect.left + heroRect.width / 2 - BASE / 2,
+          y: heroRect.top + heroRect.height / 2 + 60 - BASE / 2,
+        });
+      }
+
+      // The navbar shrinks on scroll, so track the logo continuously.
       setTo({
         x: logoRect.left + LION_CENTER_X * logoRect.width - BASE / 2,
         y: logoRect.top + LION_CENTER_Y * logoRect.height - BASE / 2,
@@ -54,9 +60,11 @@ const ScrollLion = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement | null>
 
     const timeoutId = setTimeout(measure, 150);
     window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
     return () => {
       clearTimeout(timeoutId);
       window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
     };
   }, [heroRef, isDesktop]);
 
