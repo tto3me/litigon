@@ -47,7 +47,7 @@ const BlogCard = ({
                     <div className="flex items-center md:gap-4 gap-2 text-sm md:text-base text-muted-foreground">
                         <span>{date}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        <span>Write <span className="text-black">{author}</span></span>
+                        <span>By <span className="text-foreground">{author}</span></span>
                     </div>
                 </CardContent>
             </Card>

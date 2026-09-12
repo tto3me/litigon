@@ -8,6 +8,7 @@ import { lazy, Suspense } from "react";
 const Projects = lazy(() => import("@/components/sections/litigon/projects"));
 const Showcase = lazy(() => import("@/components/sections/litigon/showcase"));
 const Approach = lazy(() => import("@/components/sections/litigon/approach"));
+const News = lazy(() => import("@/components/sections/litigon/news"));
 
 const Home = () => {
   const metaTitle = "Litigon | Events & Conferences Management in Saudi Arabia";
@@ -44,6 +45,9 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <Approach />
+        </Suspense>
+        <Suspense fallback={null}>
+          <News />
         </Suspense>
       </Layout>
     </>
