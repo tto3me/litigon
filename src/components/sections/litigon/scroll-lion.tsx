@@ -120,10 +120,14 @@ const ScrollLion = () => {
 
       x.set(docX - scrollY - BASE / 2);
 
-      // Keep the lion from ever visually rising above the navbar.
+      // Keep the lion from ever visually rising above the navbar —
+      // but only once it's in flight. At the very start it must sit
+      // exactly on the logo (which lives inside the navbar), so the
+      // clamp eases in over the first part of the journey.
       const topEdgeY = docY - scrollY - BASE / 2;
       const minTopEdgeY = logoRect.bottom + 8;
-      y.set(Math.max(topEdgeY, minTopEdgeY));
+      const clampWeight = ease(clamp01(progress / 0.12));
+      y.set(lerp(topEdgeY, Math.max(topEdgeY, minTopEdgeY), clampWeight));
 
       scale.set(size / BASE);
 
