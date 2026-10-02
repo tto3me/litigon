@@ -1,0 +1,18 @@
+# Litigon
+
+Litigon is an events and conferences management company in Riyadh, Saudi Arabia.
+
+## Primary pages
+
+- Home: https://litigon.lovable.app/
+- features: https://litigon.lovable.app/features
+- projects: https://litigon.lovable.app/projects
+- partners: https://litigon.lovable.app/partners
+- company: https://litigon.lovable.app/company
+- contact: https://litigon.lovable.app/contact
+
+## Contact
+
+- Email: Info@litigon.sa
+- Phone: +966 57 511 1122
+- Address: 5660 Anas Ibn Malik St., Al Malqa District, Riyadh 13525, Saudi Arabia
