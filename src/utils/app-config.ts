@@ -8,4 +8,8 @@ export const appConfig = {
     logo: "/litigon-mark.png",
     favicon: "/favicon.ico",
     ogImage: "/litigon-mark.png",
+    contact: {
+      email: "Info@litigon.sa",
+      phone: "+966 57 511 1122",
+    },
 }
