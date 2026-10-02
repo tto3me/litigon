@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://litigon.lovable.app/sitemap.xml
+Sitemap: https://litigon.sa/sitemap.xml

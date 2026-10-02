@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const fallbackUrl = "https://litigon.lovable.app";
+const fallbackUrl = "https://litigon.sa";
 const siteUrl = (process.env.VITE_SITE_URL || process.env.URL || fallbackUrl).replace(/\/$/, "");
 const publicDir = resolve(process.cwd(), "public");
 const indexableRoutes = ["/", "/features", "/projects", "/partners", "/company", "/contact"];
