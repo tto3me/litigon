@@ -339,6 +339,8 @@ Object.assign(zh, {
 
 const dictionaries: Record<Locale, Dictionary> = { en: {}, ar, fr, zh };
 const STORAGE_KEY = "litigon-language";
+const normalizeArabicBrandName = (value: string, dictionary: Dictionary) =>
+  dictionary === ar ? value.replaceAll("ليتغون", "ليتيقون") : value;
 
 interface LanguageContextValue {
   locale: Locale;
@@ -357,7 +359,9 @@ const translateTextNode = (node: Text, dictionary: Dictionary) => {
   if (!textSources.has(node)) textSources.set(node, source);
   const trimmed = source.trim();
   const translated = dictionary[trimmed];
-  const next = translated ? source.replace(trimmed, translated) : source;
+  const next = translated
+    ? source.replace(trimmed, normalizeArabicBrandName(translated, dictionary))
+    : source;
   if (node.nodeValue !== next) node.nodeValue = next;
 };
 
@@ -378,7 +382,10 @@ const translateTree = (root: ParentNode, dictionary: Dictionary) => {
       const value = element.getAttribute(attribute);
       if (value !== null && stored[attribute] === undefined) stored[attribute] = value;
       const source = stored[attribute];
-      if (source !== undefined) element.setAttribute(attribute, dictionary[source] ?? source);
+      if (source !== undefined) {
+        const translated = dictionary[source] ?? source;
+        element.setAttribute(attribute, normalizeArabicBrandName(translated, dictionary));
+      }
     });
     attributeSources.set(element, stored);
   });
@@ -393,7 +400,10 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     localStorage.setItem(STORAGE_KEY, next);
     setLocaleState(next);
   }, []);
-  const t = useCallback((source: string) => dictionaries[locale][source] ?? source, [locale]);
+  const t = useCallback(
+    (source: string) => normalizeArabicBrandName(dictionaries[locale][source] ?? source, dictionaries[locale]),
+    [locale],
+  );
 
   useEffect(() => {
     const html = document.documentElement;
