@@ -340,7 +340,7 @@ Object.assign(zh, {
 const dictionaries: Record<Locale, Dictionary> = { en: {}, ar, fr, zh };
 const STORAGE_KEY = "litigon-language";
 const normalizeArabicBrandName = (value: string, dictionary: Dictionary) =>
-  dictionary === ar ? value.replace(/ليتغون|ليتيقون/g, "ليتيحون") : value;
+  dictionary === ar ? value.replace(/ليتغون|ليتيقون|ليتيحون/g, "ليتيجون") : value;
 
 interface LanguageContextValue {
   locale: Locale;
