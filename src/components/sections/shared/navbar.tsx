@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import Container from "../../container";
 import litigonLogo from "@/assets/litigon/litigon-logo-optimized.png";
 import LanguageSwitcher from "./language-switcher";
+import { useLanguage } from "@/i18n/language-provider";
 
 const pages = [
   {
@@ -38,6 +39,7 @@ const pages = [
 
 const Navbar = () => {
   const location = useLocation();
+  const { locale } = useLanguage();
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const scrollRafRef = React.useRef<number | null>(null);
@@ -128,8 +130,8 @@ const Navbar = () => {
         </div>
 
         {/* <!-- Desktop --> */}
-        <NavigationMenu className="hidden lg:block mx-auto">
-          <NavigationMenuList className="gap-1">
+        <NavigationMenu className="hidden lg:block mx-auto" dir={locale === "ar" ? "rtl" : "ltr"}>
+          <NavigationMenuList className="gap-1" dir={locale === "ar" ? "rtl" : "ltr"}>
             {pages.map((page) => {
               const isActive = page.href === "/" ? location.pathname === "/" : location.pathname.startsWith(page.href);
               return (
